@@ -18,6 +18,8 @@ class MainBoardView: UICollectionViewController {
   var player1CharData: [(name: String, xCoord: Int, yCoord: Int)] = []
   var player2CharData: [(name: String, xCoord: Int, yCoord: Int)] = []
   
+  var stdBgColors = [UIColor.cyan, UIColor.green]
+  
   private var collectionview: UICollectionView!
   
   let rowsPerPlayer = 2
@@ -42,6 +44,7 @@ class MainBoardView: UICollectionViewController {
     
     //baked charlocationdata for testing
     player1CharData = [("test", 1, 2), ("sample",2,0)]
+    player2CharData = [("triangle", 2, 2)]
   }
 
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -82,9 +85,12 @@ class MainBoardView: UICollectionViewController {
   
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if cellHasAttacker(indexPath: indexPath) {
-      attack()
-      //animation?
+    if cellHasUnit(indexPath: indexPath) {
+      if isPlayer1Cell(indexPath: indexPath) {
+        attack(player: 1, from: indexPath)
+      } else {
+        attack(player: 2, from: indexPath)
+      }
     }
   }
   
@@ -95,11 +101,33 @@ extension MainBoardView {
     return indexPath.section < rowsPerPlayer && indexPath.row < colsPerPlayer
   }
   
-  func cellHasAttacker(indexPath: IndexPath) -> Bool {
-    return true
+  func cellHasUnit(indexPath: IndexPath) -> Bool {
+    return collectionView.cellForItem(at: indexPath)?.backgroundColor == .red
   }
   
-  func attack() {
-    print("attacked")
+  // friendly fire currently exists btw
+  func attack(player: Int, from initLocation: IndexPath) {
+    var currAttackLocation: Int = initLocation.section
+    var pastEndOfBoard: Int = -1
+    var increment: Int = -1
+    if (player == 1) {
+      pastEndOfBoard = collectionView.numberOfSections
+      increment = 1
+    }
+    
+    
+    currAttackLocation += increment
+    while (currAttackLocation != pastEndOfBoard) {
+      let currIndexPath = IndexPath(row: initLocation.row, section: currAttackLocation)
+      if cellHasUnit(indexPath: currIndexPath) {
+        // unit was attacked
+        let attackedUnitCell = collectionView.cellForItem(at: currIndexPath)
+        attackedUnitCell?.backgroundColor = stdBgColors[2 - player]
+        break
+      }
+      currAttackLocation += increment
+    }
+    
+    
   }
 }
