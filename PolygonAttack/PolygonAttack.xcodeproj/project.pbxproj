@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35503C2435327200BE01C2 /* MainBoardView.swift */; };
+		3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4607243958A6006BFBBC /* BoardUnit.swift */; };
 		3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9352434FE1B009E8590 /* AppDelegate.swift */; };
 		3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */; };
 		3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9392434FE1B009E8590 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A35503C2435327200BE01C2 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
+		3ACA4607243958A6006BFBBC /* BoardUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUnit.swift; sourceTree = "<group>"; };
 		3AD3B9322434FE1B009E8590 /* PolygonAttack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolygonAttack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD3B9352434FE1B009E8590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				3AD3B9352434FE1B009E8590 /* AppDelegate.swift */,
 				3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */,
 				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
+				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
+				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
 				3AD3B93B2434FE1B009E8590 /* Main.storyboard */,
 				3AD3B93E2434FE1D009E8590 /* Assets.xcassets */,
 				3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */,
@@ -140,6 +146,8 @@
 			files = (
 				3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */,
 				3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */,
+				3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */,
+				3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */,
 				3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
