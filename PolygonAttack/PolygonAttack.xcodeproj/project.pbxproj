@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35503C2435327200BE01C2 /* MainBoardView.swift */; };
+		3AA36FD6244F7CF7002225B0 /* PreGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */; };
+		3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD7244F7CFE002225B0 /* BoardView.swift */; };
+		3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD8244F7CFE002225B0 /* BoardCell.swift */; };
+		3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDB244F7D07002225B0 /* Settings.swift */; };
+		3AA36FDE244F7D07002225B0 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDC244F7D07002225B0 /* Units.swift */; };
 		3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4607243958A6006BFBBC /* BoardUnit.swift */; };
 		3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9352434FE1B009E8590 /* AppDelegate.swift */; };
 		3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */; };
@@ -19,6 +24,11 @@
 
 /* Begin PBXFileReference section */
 		3A35503C2435327200BE01C2 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
+		3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameVC.swift; sourceTree = "<group>"; };
+		3AA36FD7244F7CFE002225B0 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		3AA36FD8244F7CFE002225B0 /* BoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
+		3AA36FDB244F7D07002225B0 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3AA36FDC244F7D07002225B0 /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		3ACA4607243958A6006BFBBC /* BoardUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUnit.swift; sourceTree = "<group>"; };
 		3AD3B9322434FE1B009E8590 /* PolygonAttack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolygonAttack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD3B9352434FE1B009E8590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +73,11 @@
 				3AD3B9352434FE1B009E8590 /* AppDelegate.swift */,
 				3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */,
 				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
+				3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */,
+				3AA36FDB244F7D07002225B0 /* Settings.swift */,
+				3AA36FDC244F7D07002225B0 /* Units.swift */,
+				3AA36FD7244F7CFE002225B0 /* BoardView.swift */,
+				3AA36FD8244F7CFE002225B0 /* BoardCell.swift */,
 				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
 				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
 				3AD3B93B2434FE1B009E8590 /* Main.storyboard */,
@@ -144,9 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */,
+				3AA36FD6244F7CF7002225B0 /* PreGameVC.swift in Sources */,
+				3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */,
+				3AA36FDE244F7D07002225B0 /* Units.swift in Sources */,
 				3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */,
 				3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */,
 				3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */,
+				3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */,
 				3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */,
 				3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */,
 			);
