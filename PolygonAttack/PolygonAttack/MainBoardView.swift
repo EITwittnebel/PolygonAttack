@@ -16,8 +16,8 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
   // Data to be passed to MainBoardView from Character Selection
   // TODO: Change String to Character Class type once the class file has been implemented
 
-  var player1CharData: [(name: String, xCoord: Int, yCoord: Int)] = []
-  var player2CharData: [(name: String, xCoord: Int, yCoord: Int)] = []
+  var player1CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
+  var player2CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
   
   var stdBgColors = [UIColor.cyan, UIColor.green]
   
@@ -43,8 +43,8 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
     collView.dataSource = self
 
     //baked charlocationdata for testing
-    player1CharData = [("test", 1, 2), ("sample",2,0), ("another one",2,1)]
-    player2CharData = [("triangle", 2, 2)]
+   // player1CharData = [("test", 1, 2), ("sample",2,0), ("another one",2,1)]
+   // player2CharData = [("triangle", 2, 2)]
   }
   
   func collectionView(in collectionView: UICollectionView) -> Int {
@@ -69,13 +69,14 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     for index in 0..<player1CharData.count {
-      if ((indexPath.row / (2 * rowsPerPlayer) == player1CharData[index].yCoord) && (indexPath.row % 3 == player1CharData[index].xCoord)) {
+      if ((indexPath.row / squaresPerRow == player1CharData[index].yCoord) && (indexPath.row % squaresPerRow == player1CharData[index].xCoord)) {
+        print("TEST \(player1CharData[index].xCoord)")
         cell.backgroundColor = .red
       }
     }
     
     for index in 0..<player2CharData.count {
-      if ((indexPath.row / (2 * rowsPerPlayer) == player2CharData[index].yCoord) && (indexPath.row % squaresPerRow == player2CharData[index].xCoord)) {
+      if ((indexPath.row / squaresPerRow == player2CharData[index].yCoord) && (indexPath.row % squaresPerRow == player2CharData[index].xCoord)) {
         cell.backgroundColor = .red
       }
     }

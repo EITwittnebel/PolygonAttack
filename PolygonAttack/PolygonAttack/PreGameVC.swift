@@ -20,7 +20,7 @@ class PreGameVC: UIViewController {
         didSet {
             if player0TotalUnits == Settings.playerMaxStartUnits
                 && player1TotalUnits == Settings.playerMaxStartUnits {
-                print(boardView.reportGameCondition())
+                print(boardView.reportGameCondition(0))
             }
         }
     }
@@ -28,7 +28,7 @@ class PreGameVC: UIViewController {
         didSet {
             if player0TotalUnits == Settings.playerMaxStartUnits
                 && player1TotalUnits == Settings.playerMaxStartUnits {
-                print(boardView.reportGameCondition())
+                print(boardView.reportGameCondition(1))
             }
         }
     }
@@ -95,6 +95,12 @@ class PreGameVC: UIViewController {
         
         drawNewUnit()
     }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let dest = segue.destination as! MainBoardView
+    dest.player1CharData = boardView.reportGameCondition(0)
+    dest.player2CharData = boardView.reportGameCondition(1)
+  }
 }
 
 extension PreGameVC: UIDragInteractionDelegate {
