@@ -60,7 +60,7 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainBoardCell", for: indexPath)
     cell.backgroundColor = .clear
     cell.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
-    cell.layer.borderWidth = 2
+    cell.layer.borderWidth = 1
     
     if (isPlayer1Cell(indexPath: indexPath)) {
       cell.backgroundColor = stdBgColors[0]

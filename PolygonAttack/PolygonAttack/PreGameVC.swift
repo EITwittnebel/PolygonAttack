@@ -62,7 +62,7 @@ class PreGameVC: UIViewController {
         boardView.widthAnchor.constraint(equalToConstant: boardWidth).isActive = true
         boardView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         boardView.heightAnchor.constraint(equalToConstant: boardHeight).isActive = true
-        boardView.backgroundColor = .gray
+        boardView.backgroundColor = .clear
         
         cellGenerator0 = BoardCell(frame: .zero, xCoodInBoard: 0, yCoodInBoard: -1)
         cellGenerator0.unitToDraw = Settings.playerMaxStartUnits
