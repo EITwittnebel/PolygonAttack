@@ -13,6 +13,9 @@
 		3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD8244F7CFE002225B0 /* BoardCell.swift */; };
 		3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDB244F7D07002225B0 /* Settings.swift */; };
 		3AA36FDE244F7D07002225B0 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDC244F7D07002225B0 /* Units.swift */; };
+		3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF020C245E0AA80031666B /* LoginViewController.swift */; };
+		3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF020E245E10300031666B /* AcRegisterViewController.swift */; };
+		3ABF0212245E120C0031666B /* LoginDetails.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */; };
 		3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA4607243958A6006BFBBC /* BoardUnit.swift */; };
 		3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9352434FE1B009E8590 /* AppDelegate.swift */; };
 		3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */; };
@@ -29,6 +32,9 @@
 		3AA36FD8244F7CFE002225B0 /* BoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		3AA36FDB244F7D07002225B0 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		3AA36FDC244F7D07002225B0 /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		3ABF020C245E0AA80031666B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3ABF020E245E10300031666B /* AcRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcRegisterViewController.swift; sourceTree = "<group>"; };
+		3ABF0211245E120C0031666B /* LoginDetails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoginDetails.xcdatamodel; sourceTree = "<group>"; };
 		3ACA4607243958A6006BFBBC /* BoardUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUnit.swift; sourceTree = "<group>"; };
 		3AD3B9322434FE1B009E8590 /* PolygonAttack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolygonAttack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD3B9352434FE1B009E8590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
 				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
 				3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */,
+				3ABF020C245E0AA80031666B /* LoginViewController.swift */,
+				3ABF020E245E10300031666B /* AcRegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -92,6 +100,7 @@
 				3AD3B93E2434FE1D009E8590 /* Assets.xcassets */,
 				3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */,
 				3AD3B9432434FE1D009E8590 /* Info.plist */,
+				3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */,
 			);
 			path = PolygonAttack;
 			sourceTree = "<group>";
@@ -172,11 +181,14 @@
 				3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */,
 				3AA36FDE244F7D07002225B0 /* Units.swift in Sources */,
 				3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */,
+				3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */,
 				3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */,
 				3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */,
+				3ABF0212245E120C0031666B /* LoginDetails.xcdatamodeld in Sources */,
 				3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */,
 				3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */,
 				3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */,
+				3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +384,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3ABF0211245E120C0031666B /* LoginDetails.xcdatamodel */,
+			);
+			currentVersion = 3ABF0211245E120C0031666B /* LoginDetails.xcdatamodel */;
+			path = LoginDetails.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3AD3B92A2434FE1A009E8590 /* Project object */;
 }
