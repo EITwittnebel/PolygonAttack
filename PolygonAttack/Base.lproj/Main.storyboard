@@ -168,7 +168,7 @@
         <!--Main Menu-->
         <scene sceneID="qb1-ci-cNZ">
             <objects>
-                <viewController title="Main Menu" id="mDo-8H-S73" customClass="ViewController" customModule="PolygonAttack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main Page" title="Main Menu" id="mDo-8H-S73" customClass="ViewController" customModule="PolygonAttack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwK-PF-yvK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

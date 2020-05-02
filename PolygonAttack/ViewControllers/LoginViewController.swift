@@ -45,7 +45,10 @@ class LoginViewController: UIViewController {
     }
     
     func doLogin (_ User: String,_ Pass:String){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let secVC = storyboard.instantiateViewController(identifier: "Main Page")
         
+        self.present(secVC, animated: true, completion: nil)
     }
     
 
