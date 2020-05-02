@@ -16,6 +16,7 @@ class BoardView: UIView {
     var image2M: BoardCell!
     var boardCellArr: [[BoardCell]]
     
+    let factory: UnitFactory = UnitFactory()
     weak var preGameVC: PreGameVC!
     
     override init(frame: CGRect) {
@@ -64,15 +65,15 @@ class BoardView: UIView {
         }
     }
     
-    func reportGameCondition(_ playerNum: Int) -> [(Int, Int, Int)] {
+    func reportGameCondition(_ playerNum: Int) -> [BoardUnit] {
       
-        var gameCondition: [(Int, Int, Int)] = []
+        var gameCondition: [BoardUnit] = []
         for yloop in 0..<Settings.boardYPieces {
             for xloop in 0..<Settings.boardXPieces {
                 let cell = boardCellArr[xloop][yloop]
                 if cell.image != nil {
                   if (checkCellOwner(cellCood: cell.coordinates) == playerNum) {
-                    gameCondition.append((cell.reverseIndex(unit: cell.cellUnit), xloop, yloop))
+                    gameCondition.append(factory.createUnit(toCreate: cell.cellUnit, posX: xloop, posY: yloop))
                   }
                 }
             }

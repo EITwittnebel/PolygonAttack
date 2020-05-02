@@ -12,8 +12,8 @@ class MainBoardView: UIViewController {
   
   let squaresPerRow = Settings.boardXPieces
   let rowsPerPlayer = Settings.boardYPieces/2
-  var player1CharData: [(unitIndex: Int, xCoord: Int, yCoord: Int)] = []
-  var player2CharData: [(unitIndex: Int, xCoord: Int, yCoord: Int)] = []
+  var player1CharData: [BoardUnit] = []
+  var player2CharData: [BoardUnit] = []
   var boardView: BoardView!
   let stdBgColors = [UIColor.cyan, UIColor.green]
   
@@ -68,11 +68,11 @@ class MainBoardView: UIViewController {
   func setPieces() {
     for char in player1CharData {
       boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
-      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.unitIndex)
+      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
     }
     for char in player2CharData {
       boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
-      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.unitIndex)
+      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
     }
   }
   
