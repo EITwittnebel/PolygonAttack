@@ -64,18 +64,15 @@ class BoardView: UIView {
         }
     }
     
-    //TODO: modify
-    func reportGameCondition(_ playerNum: Int) -> [(Units, Int, Int)] {
+    func reportGameCondition(_ playerNum: Int) -> [(Int, Int, Int)] {
       
-        var gameCondition: [(Units, Int, Int)] = []
+        var gameCondition: [(Int, Int, Int)] = []
         for yloop in 0..<Settings.boardYPieces {
             for xloop in 0..<Settings.boardXPieces {
                 let cell = boardCellArr[xloop][yloop]
                 if cell.image != nil {
                   if (checkCellOwner(cellCood: cell.coordinates) == playerNum) {
-                    gameCondition.append((cell.cellUnit, xloop, yloop))
-                    //print(xloop)
-                    //print(yloop)
+                    gameCondition.append((cell.reverseIndex(unit: cell.cellUnit), xloop, yloop))
                   }
                 }
             }
@@ -91,6 +88,10 @@ class BoardView: UIView {
             return 1
         }
     }
+  
+  func cellHasUnit(xCoordinate: Int, yCoordinate: Int) -> Bool {
+    return !(boardCellArr[xCoordinate][yCoordinate].cellUnit == .none)
+  }
 }
 
 extension BoardView: UIDragInteractionDelegate {

@@ -17,7 +17,7 @@ class BoardCell: UIImageView {
     }
     
     var unitToDraw = 0
-    var cellUnit: Units = .none
+    var cellUnit: Unit = .none
 
     init(frame: CGRect, xCoodInBoard xCood: Int, yCoodInBoard yCood: Int) {
         xCoordinate = xCood
@@ -43,7 +43,7 @@ class BoardCell: UIImageView {
             self.layer.borderWidth = 1
         }
     }
-    
+  
     func drawUnit(index: Int) {
         guard unitToDraw > 0 else { return }
         switch index {
@@ -61,6 +61,24 @@ class BoardCell: UIImageView {
             self.cellUnit = .none
         }
         unitToDraw -= 1
+    }
+  
+    func removePiece() {
+        self.image = nil
+        self.cellUnit = .none
+    }
+  
+    func reverseIndex(unit: Unit) -> Int {
+      switch unit {
+      case .ninja:
+          return 0
+      case .baby:
+          return 1
+      case .blonde:
+          return 2
+      default:
+          return -1
+      }
     }
 }
 

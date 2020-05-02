@@ -9,18 +9,27 @@
 import UIKit
 
 
-class BoardUnit {
-  var name: String
-  //var character: Unit
+protocol Attacker {
+  func attack(onBoard boardView: BoardView)
+}
+
+protocol BoardUnit {
+  var name: Unit { get set }
+  var xCoord: Int { get set }
+  var yCoord: Int { get set }
+}
+
+class Ninja: BoardUnit, Attacker {
+  var name: Unit = .ninja
   var xCoord: Int
   var yCoord: Int
-  var charImage: UIImage?
   
-  init() {
-    name = ""
-    xCoord = 1
-    yCoord = 1
-    charImage = nil
+  init(Posx: Int, Posy: Int) {
+    xCoord = Posx
+    yCoord = Posy
   }
   
+  func attack(onBoard boardView: BoardView) {
+    
+  }
 }

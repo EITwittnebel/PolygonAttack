@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Units {
+enum Unit {
     case ninja
     case baby
     case blonde
