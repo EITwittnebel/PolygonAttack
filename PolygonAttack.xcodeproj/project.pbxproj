@@ -51,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3ABF020B245E00E50031666B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
+				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
+				3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3AD3B9292434FE1A009E8590 = {
 			isa = PBXGroup;
 			children = (
@@ -70,15 +80,13 @@
 		3AD3B9342434FE1B009E8590 /* PolygonAttack */ = {
 			isa = PBXGroup;
 			children = (
-				3AD3B9352434FE1B009E8590 /* AppDelegate.swift */,
 				3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */,
-				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
-				3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */,
+				3AD3B9352434FE1B009E8590 /* AppDelegate.swift */,
+				3ABF020B245E00E50031666B /* ViewControllers */,
 				3AA36FDB244F7D07002225B0 /* Settings.swift */,
 				3AA36FDC244F7D07002225B0 /* Units.swift */,
 				3AA36FD7244F7CFE002225B0 /* BoardView.swift */,
 				3AA36FD8244F7CFE002225B0 /* BoardCell.swift */,
-				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
 				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
 				3AD3B93B2434FE1B009E8590 /* Main.storyboard */,
 				3AD3B93E2434FE1D009E8590 /* Assets.xcassets */,
