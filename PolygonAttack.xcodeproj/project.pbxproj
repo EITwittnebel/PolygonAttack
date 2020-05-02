@@ -12,7 +12,7 @@
 		3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD7244F7CFE002225B0 /* BoardView.swift */; };
 		3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD8244F7CFE002225B0 /* BoardCell.swift */; };
 		3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDB244F7D07002225B0 /* Settings.swift */; };
-		3AA36FDE244F7D07002225B0 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDC244F7D07002225B0 /* Units.swift */; };
+		3AA36FDE244F7D07002225B0 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDC244F7D07002225B0 /* Unit.swift */; };
 		3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF020C245E0AA80031666B /* LoginViewController.swift */; };
 		3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF020E245E10300031666B /* AcRegisterViewController.swift */; };
 		3ABF0212245E120C0031666B /* LoginDetails.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */; };
@@ -31,7 +31,7 @@
 		3AA36FD7244F7CFE002225B0 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		3AA36FD8244F7CFE002225B0 /* BoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		3AA36FDB244F7D07002225B0 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		3AA36FDC244F7D07002225B0 /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		3AA36FDC244F7D07002225B0 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		3ABF020C245E0AA80031666B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3ABF020E245E10300031666B /* AcRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcRegisterViewController.swift; sourceTree = "<group>"; };
 		3ABF0211245E120C0031666B /* LoginDetails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoginDetails.xcdatamodel; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				3AD3B9352434FE1B009E8590 /* AppDelegate.swift */,
 				3ABF020B245E00E50031666B /* ViewControllers */,
 				3AA36FDB244F7D07002225B0 /* Settings.swift */,
-				3AA36FDC244F7D07002225B0 /* Units.swift */,
+				3AA36FDC244F7D07002225B0 /* Unit.swift */,
 				3AA36FD7244F7CFE002225B0 /* BoardView.swift */,
 				3AA36FD8244F7CFE002225B0 /* BoardCell.swift */,
 				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
@@ -179,7 +179,7 @@
 				3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */,
 				3AA36FD6244F7CF7002225B0 /* PreGameVC.swift in Sources */,
 				3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */,
-				3AA36FDE244F7D07002225B0 /* Units.swift in Sources */,
+				3AA36FDE244F7D07002225B0 /* Unit.swift in Sources */,
 				3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */,
 				3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */,
 				3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */,
