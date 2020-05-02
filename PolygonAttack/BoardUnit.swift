@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol Attacker {
-  func attack()
+  func attack(onBoard boardView: BoardView)
 }
 
 protocol BoardUnit {
