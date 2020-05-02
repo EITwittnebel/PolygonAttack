@@ -36,23 +36,7 @@
                     <view key="view" contentMode="scaleToFill" id="Fka-8n-XT1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBu-M8-AZy">
-                                <rect key="frame" x="61" y="821" width="292" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="72s-He-E0I"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="OBu-M8-AZy" firstAttribute="leading" secondItem="bjz-Dn-bWI" secondAttribute="leading" constant="61" id="Ci2-hh-TFA"/>
-                            <constraint firstItem="bjz-Dn-bWI" firstAttribute="bottom" secondItem="OBu-M8-AZy" secondAttribute="bottom" id="Ve1-p8-Zbp"/>
-                            <constraint firstItem="OBu-M8-AZy" firstAttribute="centerX" secondItem="Fka-8n-XT1" secondAttribute="centerX" id="Yxn-pe-DyR"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bjz-Dn-bWI"/>
                     </view>
                     <navigationItem key="navigationItem" id="E2B-Ux-Vnv"/>
