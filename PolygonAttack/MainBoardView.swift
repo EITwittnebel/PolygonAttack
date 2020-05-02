@@ -42,8 +42,13 @@ class MainBoardView: UIViewController {
     boardView.heightAnchor.constraint(equalToConstant: boardHeight).isActive = true
     boardView.backgroundColor = .clear
     
-    let gesture = UITapGestureRecognizer(target: self, action: #selector (viewPressed))
-    boardView.addGestureRecognizer(gesture)
+    for rows in boardView.boardCellArr {
+      for item in rows {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewPressed))
+        item.addGestureRecognizer(gesture)
+      }
+    }
+
   }
   
   @objc func viewPressed() {
