@@ -12,8 +12,8 @@ class MainBoardView: UIViewController {
   
   let squaresPerRow = Settings.boardXPieces
   let rowsPerPlayer = Settings.boardYPieces/2
-  var player1CharData: [(name: Unit?, xCoord: Int, yCoord: Int)] = []
-  var player2CharData: [(name: Unit?, xCoord: Int, yCoord: Int)] = []
+  var player1CharData: [(unitIndex: Int, xCoord: Int, yCoord: Int)] = []
+  var player2CharData: [(unitIndex: Int, xCoord: Int, yCoord: Int)] = []
   var boardView: BoardView!
   let stdBgColors = [UIColor.cyan, UIColor.green]
   
@@ -68,11 +68,11 @@ class MainBoardView: UIViewController {
   func setPieces() {
     for char in player1CharData {
       boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
-      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: 0)
+      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.unitIndex)
     }
     for char in player2CharData {
       boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
-      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: 2)
+      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.unitIndex)
     }
   }
   
@@ -87,11 +87,11 @@ class MainBoardView: UIViewController {
     
     currAttackLocation.1 += increment
     while ((currAttackLocation.1 >= 0) && (currAttackLocation.1 < (2 * rowsPerPlayer))) {
-      //let currAttackLocation = (row: currAttackLocation, col: 0)
       if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
         // unit was attacked
         let attackedUnitCell = boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1]
-        let attackedPlayer = boardView.checkCellOwner(cellCood: currAttackLocation) + 1
+        //change this if you want to avoid friendly fire
+        //let attackedPlayer = boardView.checkCellOwner(cellCood: currAttackLocation) + 1
         attackedUnitCell.removePiece()
         break
       }

@@ -67,6 +67,19 @@ class BoardCell: UIImageView {
         self.image = nil
         self.cellUnit = .none
     }
+  
+    func reverseIndex(unit: Unit) -> Int {
+      switch unit {
+      case .ninja:
+          return 0
+      case .baby:
+          return 1
+      case .blonde:
+          return 2
+      default:
+          return -1
+      }
+    }
 }
 
 enum BorderColor {
