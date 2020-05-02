@@ -10,9 +10,12 @@ import UIKit
 
 class MainBoardView: UIViewController {
   
+  let squaresPerRow = Settings.boardXPieces
+  let rowsPerPlayer = Settings.boardYPieces/2
   var player1CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
   var player2CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
   var boardView: BoardView!
+  let stdBgColors = [UIColor.cyan, UIColor.green]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,8 +54,36 @@ class MainBoardView: UIViewController {
 
   }
   
-  @objc func viewPressed() {
-    print("test")
+  @objc func viewPressed(sender: Any) {
+    if let recognizer = sender as? UITapGestureRecognizer {
+      if let cell = recognizer.view as? BoardCell {
+        //attack(1,cell.xCoordinate)
+        
+        print(cell.xCoordinate)
+      }
+    }
+  }
+  
+  // friendly fire currently exists btw
+  func attack(player: Int, from initLocation: BoardCell) {
+    var currAttackLocation: (Int, Int) = (initLocation.xCoordinate, initLocation.yCoordinate)
+    var increment: Int = -1
+    if (player == 1) {
+      increment = 1
+    }
+    
+    currAttackLocation.1 += increment
+    while ((currAttackLocation.1 > 0) && (currAttackLocation.1 < (2 * rowsPerPlayer))) {
+      //let currAttackLocation = (row: currAttackLocation, col: 0)
+      if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
+        // unit was attacked
+        let attackedUnitCell = boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1]
+        let attackedPlayer = boardView.checkCellOwner(cellCood: currAttackLocation) + 1
+        attackedUnitCell.backgroundColor = stdBgColors[attackedPlayer - 1]
+        break
+      }
+      currAttackLocation.1 += increment
+    }
   }
   
 }

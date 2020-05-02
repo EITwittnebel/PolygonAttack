@@ -91,6 +91,10 @@ class BoardView: UIView {
             return 1
         }
     }
+  
+  func cellHasUnit(xCoordinate: Int, yCoordinate: Int) -> Bool {
+    return !(boardCellArr[xCoordinate][yCoordinate].cellUnit == .none)
+  }
 }
 
 extension BoardView: UIDragInteractionDelegate {

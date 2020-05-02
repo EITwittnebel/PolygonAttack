@@ -43,7 +43,7 @@ class BoardCell: UIImageView {
             self.layer.borderWidth = 1
         }
     }
-    
+  
     func drawUnit(index: Int) {
         guard unitToDraw > 0 else { return }
         switch index {
