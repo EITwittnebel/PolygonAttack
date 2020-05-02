@@ -60,9 +60,16 @@ class MainBoardView: UIViewController {
       if let cell = recognizer.view as? BoardCell {
         if cell.cellUnit != .none {
           attack(from: cell)
+        } else {
+          move(piece: &player1CharData[0], to: cell)
         }
       }
     }
+  }
+  
+  func move(piece: inout BoardUnit, to destination: BoardCell) {
+    boardView.boardCellArr[piece.xCoord][piece.yCoord].removePiece()
+    piece.moveTo(cell: destination)
   }
   
   func setPieces() {

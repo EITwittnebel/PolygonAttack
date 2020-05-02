@@ -14,11 +14,24 @@ protocol Attacker {
 }
 
 protocol BoardUnit {
-  var name: Unit { get set }
+  var name: Unit { get }
+  var imageIndex: Int { get }
   var xCoord: Int { get set }
   var yCoord: Int { get set }
   var isMoving: Bool { get set }
-  var imageIndex: Int { get }
+  
+  mutating func moveTo(cell: BoardCell)
+}
+
+extension BoardUnit {
+  mutating func moveTo(cell: BoardCell) {
+    isMoving = false
+    xCoord = cell.xCoordinate
+    yCoord = cell.yCoordinate
+    cell.unitToDraw = 1
+    cell.cellUnit = name
+    cell.drawUnit(index: imageIndex)
+  }
 }
 
 class UnitFactory {
@@ -55,7 +68,7 @@ class Ninja: BoardUnit, Attacker {
 }
 
 class Baby: BoardUnit, Attacker {
-  var name: Unit = .ninja
+  var name: Unit = .baby
   var xCoord: Int
   var yCoord: Int
   var isMoving: Bool
@@ -73,11 +86,11 @@ class Baby: BoardUnit, Attacker {
 }
 
 class Blonde: BoardUnit, Attacker {
-  var name: Unit = .ninja
+  var name: Unit = .blonde
   var xCoord: Int
   var yCoord: Int
   var isMoving: Bool
-  var imageIndex: Int = 1
+  var imageIndex: Int = 2
   
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
