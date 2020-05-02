@@ -8,21 +8,60 @@
 
 import UIKit
 
-class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MainBoardView: UIViewController {
   
-  //var theBoard: UICollectionViewController?
-  @IBOutlet weak var collView: UICollectionView!
+  var player1CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
+  var player2CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
+  var boardView: BoardView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    configureView()
+  }
+  
+  func configureView() {
+    configureBoard()
+    //configureLabel()
+  }
+  /*
+  func configureLabel() {
+    let playerTurnLabel = UILabel(frame: CGRect(x: 0, y: 0, width: <#T##CGFloat#>, height: <#T##CGFloat#>))
+    playerTurnLabel.
+  }*/
+  
+  func configureBoard() {
+    let sideMargin = CGFloat(32)
+    let boardWidth = view.safeAreaLayoutGuide.layoutFrame.width - sideMargin * 2
+    let boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
+    boardView = BoardView(frame: CGRect(x: 0, y: 0, width: boardWidth, height: boardHeight))
+    view.addSubview(boardView)
+    boardView.translatesAutoresizingMaskIntoConstraints = false
+    boardView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+    boardView.widthAnchor.constraint(equalToConstant: boardWidth).isActive = true
+    boardView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+    boardView.heightAnchor.constraint(equalToConstant: boardHeight).isActive = true
+    boardView.backgroundColor = .clear
+    
+    let gesture = UITapGestureRecognizer(target: self, action: #selector (viewPressed))
+    boardView.addGestureRecognizer(gesture)
+  }
+  
+  @objc func viewPressed() {
+    print("test")
+  }
+  
+}
   
   // Data to be passed to MainBoardView from Character Selection
   // TODO: Change String to Character Class type once the class file has been implemented
-
-  var player1CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
-  var player2CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
+/*
   
   var stdBgColors = [UIColor.cyan, UIColor.green]
   
   let rowsPerPlayer = 3
   let squaresPerRow = 3
+  
+  
   
   // MARK - viewDidLoad
   override func viewDidLoad() {
@@ -41,8 +80,6 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     collView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "mainBoardCell")
     collView.collectionViewLayout = layout
-    collView.delegate = self
-    collView.dataSource = self
 
     //baked charlocationdata for testing
     //player1CharData = [("test", 1, 2), ("sample",2,0), ("another one",2,1)]
@@ -133,3 +170,4 @@ extension MainBoardView {
     
   }
 }
+*/

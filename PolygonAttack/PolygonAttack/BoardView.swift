@@ -43,8 +43,8 @@ class BoardView: UIView {
                                    y: CGFloat(minY + CGFloat(yloop) * unitWidth),
                                    width: unitWidth, height: unitWidth)
                 let image2D = BoardCell(frame: frame, xCoodInBoard: xloop, yCoodInBoard: yloop)
-                //TODO: Make this not a magic number so it works with varying board sizes
-                if (yloop > 1) {
+               
+                if (yloop >= Settings.boardYPieces / 2) {
                   image2D.backgroundColor = .green
                 } else {
                   image2D.backgroundColor = .cyan

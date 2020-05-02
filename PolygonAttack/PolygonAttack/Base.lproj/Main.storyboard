@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mDo-8H-S73">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wan-t4-rUe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,43 +46,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kvc-4X-1n5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MN6-CO-WOV">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UaW-gS-uwF">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mou-uT-fFk">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Kvc-4X-1n5" firstAttribute="leading" secondItem="bjz-Dn-bWI" secondAttribute="leading" id="7fe-0h-vad"/>
                             <constraint firstItem="OBu-M8-AZy" firstAttribute="leading" secondItem="bjz-Dn-bWI" secondAttribute="leading" constant="61" id="Ci2-hh-TFA"/>
-                            <constraint firstItem="OBu-M8-AZy" firstAttribute="top" secondItem="Kvc-4X-1n5" secondAttribute="bottom" constant="8" id="FjV-e8-pqW"/>
-                            <constraint firstItem="Kvc-4X-1n5" firstAttribute="centerX" secondItem="OBu-M8-AZy" secondAttribute="centerX" id="Miw-E2-kKK"/>
                             <constraint firstItem="bjz-Dn-bWI" firstAttribute="bottom" secondItem="OBu-M8-AZy" secondAttribute="bottom" id="Ve1-p8-Zbp"/>
-                            <constraint firstItem="Kvc-4X-1n5" firstAttribute="top" secondItem="bjz-Dn-bWI" secondAttribute="top" id="YAA-Al-kIA"/>
                             <constraint firstItem="OBu-M8-AZy" firstAttribute="centerX" secondItem="Fka-8n-XT1" secondAttribute="centerX" id="Yxn-pe-DyR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bjz-Dn-bWI"/>
                     </view>
                     <navigationItem key="navigationItem" id="E2B-Ux-Vnv"/>
-                    <connections>
-                        <outlet property="collView" destination="Kvc-4X-1n5" id="1vX-Ne-VdO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sno-Hv-cj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
