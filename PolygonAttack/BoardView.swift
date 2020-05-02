@@ -64,18 +64,15 @@ class BoardView: UIView {
         }
     }
     
-    //TODO: modify
-    func reportGameCondition(_ playerNum: Int) -> [(Units, Int, Int)] {
+    func reportGameCondition(_ playerNum: Int) -> [(Unit, Int, Int)] {
       
-        var gameCondition: [(Units, Int, Int)] = []
+        var gameCondition: [(Unit, Int, Int)] = []
         for yloop in 0..<Settings.boardYPieces {
             for xloop in 0..<Settings.boardXPieces {
                 let cell = boardCellArr[xloop][yloop]
                 if cell.image != nil {
                   if (checkCellOwner(cellCood: cell.coordinates) == playerNum) {
                     gameCondition.append((cell.cellUnit, xloop, yloop))
-                    //print(xloop)
-                    //print(yloop)
                   }
                 }
             }

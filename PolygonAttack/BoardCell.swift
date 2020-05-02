@@ -17,7 +17,7 @@ class BoardCell: UIImageView {
     }
     
     var unitToDraw = 0
-    var cellUnit: Units = .none
+    var cellUnit: Unit = .none
 
     init(frame: CGRect, xCoodInBoard xCood: Int, yCoodInBoard yCood: Int) {
         xCoordinate = xCood

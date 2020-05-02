@@ -12,8 +12,8 @@ class MainBoardView: UIViewController {
   
   let squaresPerRow = Settings.boardXPieces
   let rowsPerPlayer = Settings.boardYPieces/2
-  var player1CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
-  var player2CharData: [(name: Units?, xCoord: Int, yCoord: Int)] = []
+  var player1CharData: [(name: Unit?, xCoord: Int, yCoord: Int)] = []
+  var player2CharData: [(name: Unit?, xCoord: Int, yCoord: Int)] = []
   var boardView: BoardView!
   let stdBgColors = [UIColor.cyan, UIColor.green]
   
