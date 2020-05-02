@@ -8,8 +8,10 @@
 
 import UIKit
 
+
 class BoardUnit {
   var name: String
+  //var character: Unit
   var xCoord: Int
   var yCoord: Int
   var charImage: UIImage?

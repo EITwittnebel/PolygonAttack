@@ -9,8 +9,8 @@
 import Foundation
 
 enum Settings {
-    static let boardXPieces: Int = 3
-    static let boardYPieces: Int = 4
+    static let boardXPieces: Int = 4
+    static let boardYPieces: Int = 6
     
     static let playerMaxStartUnits: Int = 3
 }

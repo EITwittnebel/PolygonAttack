@@ -21,7 +21,7 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
   
   var stdBgColors = [UIColor.cyan, UIColor.green]
   
-  let rowsPerPlayer = 2
+  let rowsPerPlayer = 3
   let squaresPerRow = 3
   
   // MARK - viewDidLoad
@@ -32,7 +32,9 @@ class MainBoardView: UIViewController, UICollectionViewDelegate, UICollectionVie
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
     
-    let tileSizeWidth: CGFloat = (self.view.frame.width / CGFloat(squaresPerRow))
+    let desiredWidth: CGFloat = (view.frame.width / CGFloat(squaresPerRow))
+    let desiredHeight: CGFloat = (view.frame.height / CGFloat(2 * rowsPerPlayer))
+    let tileSizeWidth: CGFloat = min(desiredWidth, desiredHeight)
     layout.estimatedItemSize = CGSize(width: tileSizeWidth, height: tileSizeWidth)
     layout.minimumLineSpacing = 0
     layout.minimumInteritemSpacing = 0
