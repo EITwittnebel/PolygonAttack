@@ -62,6 +62,11 @@ class BoardCell: UIImageView {
         }
         unitToDraw -= 1
     }
+  
+    func removePiece() {
+        self.image = nil
+        self.cellUnit = .none
+    }
 }
 
 enum BorderColor {
