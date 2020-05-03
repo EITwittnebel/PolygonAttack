@@ -16,10 +16,16 @@ class MainBoardView: UIViewController {
   var player2CharData: [BoardUnit] = []
   var boardView: BoardView!
   let stdBgColors = [UIColor.cyan, UIColor.green]
+  var pieceToMove: BoardUnit?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configureView()
+    
+    //remove this once an actual choice of move/attack is implemented
+    if (player1CharData.count > 0) {
+      pieceToMove = player1CharData[0]
+    }
   }
   
   func configureView() {
@@ -58,10 +64,34 @@ class MainBoardView: UIViewController {
   @objc func viewPressed(sender: Any) {
     if let recognizer = sender as? UITapGestureRecognizer {
       if let cell = recognizer.view as? BoardCell {
+        
         if cell.cellUnit != .none {
-          attack(from: cell)
+          let testAlert = UIAlertController(title: "Perform Action", message: "Select action to perform.", preferredStyle: .actionSheet)
+          let attackAction = UIAlertAction(title: "Attack", style: .default, handler: {
+            action in self.attack(from: cell)
+          })
+          let moveAction = UIAlertAction(title: "Move", style: .default, handler:  {
+            action in
+            for item in self.player1CharData {
+              if item.xCoord == cell.xCoordinate && item.yCoord == cell.yCoordinate {
+                self.pieceToMove = item
+                break
+              }
+            }
+            for item in self.player2CharData {
+              if item.xCoord == cell.xCoordinate && item.yCoord == cell.yCoordinate {
+                self.pieceToMove = item
+                break
+              }
+            }
+          })
+          testAlert.addAction(attackAction)
+          testAlert.addAction(moveAction)
+          present(testAlert,animated: true)
         } else {
-          move(piece: &player1CharData[0], to: cell)
+          if (pieceToMove != nil) {
+            move(piece: &pieceToMove!, to: cell)
+          }
         }
       }
     }
