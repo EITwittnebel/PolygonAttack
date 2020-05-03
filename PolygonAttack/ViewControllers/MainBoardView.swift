@@ -15,29 +15,41 @@ class MainBoardView: UIViewController {
   var player1CharData: [BoardUnit] = []
   var player2CharData: [BoardUnit] = []
   var boardView: BoardView!
+  var playerTurn: Int = 1
   let stdBgColors = [UIColor.cyan, UIColor.green]
   var pieceToMove: BoardUnit?
+  var playerTurnLabel: UILabel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configureView()
-    
-    //remove this once an actual choice of move/attack is implemented
-    if (player1CharData.count > 0) {
-      pieceToMove = player1CharData[0]
-    }
   }
   
   func configureView() {
     configureBoard()
     setPieces()
-    //configureLabel()
+    configureLabel()
   }
-  /*
+  
+  func setPieces() {
+    for char in player1CharData {
+      boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
+      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
+    }
+    for char in player2CharData {
+      boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
+      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
+    }
+  }
+  
   func configureLabel() {
-    let playerTurnLabel = UILabel(frame: CGRect(x: 0, y: 0, width: <#T##CGFloat#>, height: <#T##CGFloat#>))
-    playerTurnLabel.
-  }*/
+    playerTurnLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
+    playerTurnLabel!.text = "Player \(playerTurn)'s turn"
+    playerTurnLabel!.center.x = view.center.x
+    playerTurnLabel!.center.y = 50
+    playerTurnLabel!.textAlignment = .center
+    view.addSubview(playerTurnLabel!)
+  }
   
   func configureBoard() {
     let sideMargin = CGFloat(32)
@@ -58,36 +70,13 @@ class MainBoardView: UIViewController {
         item.addGestureRecognizer(gesture)
       }
     }
-
   }
   
   @objc func viewPressed(sender: Any) {
     if let recognizer = sender as? UITapGestureRecognizer {
       if let cell = recognizer.view as? BoardCell {
-        
         if cell.cellUnit != .none {
-          let testAlert = UIAlertController(title: "Perform Action", message: "Select action to perform.", preferredStyle: .actionSheet)
-          let attackAction = UIAlertAction(title: "Attack", style: .default, handler: {
-            action in self.attack(from: cell)
-          })
-          let moveAction = UIAlertAction(title: "Move", style: .default, handler:  {
-            action in
-            for item in self.player1CharData {
-              if item.xCoord == cell.xCoordinate && item.yCoord == cell.yCoordinate {
-                self.pieceToMove = item
-                break
-              }
-            }
-            for item in self.player2CharData {
-              if item.xCoord == cell.xCoordinate && item.yCoord == cell.yCoordinate {
-                self.pieceToMove = item
-                break
-              }
-            }
-          })
-          testAlert.addAction(attackAction)
-          testAlert.addAction(moveAction)
-          present(testAlert,animated: true)
+          openActionMenu(cell: cell)
         } else {
           if (pieceToMove != nil) {
             move(piece: &pieceToMove!, to: cell)
@@ -98,20 +87,38 @@ class MainBoardView: UIViewController {
     }
   }
   
+  func openActionMenu(cell: BoardCell) {
+    let actionAlert = UIAlertController(title: "Perform Action", message: "Select action to perform.", preferredStyle: .actionSheet)
+    
+    let attackAction = UIAlertAction(title: "Attack", style: .default, handler: {
+      action in
+      self.attack(from: cell)
+    })
+    
+    let moveAction = UIAlertAction(title: "Move", style: .default, handler:  {
+      action in
+      for item in self.player1CharData {
+        if item.xCoord == cell.xCoordinate && item.yCoord == cell.yCoordinate {
+          self.pieceToMove = item
+          break
+        }
+      }
+      for item in self.player2CharData {
+        if item.xCoord == cell.xCoordinate && item.yCoord == cell.yCoordinate {
+          self.pieceToMove = item
+          break
+        }
+      }
+    })
+    actionAlert.addAction(attackAction)
+    actionAlert.addAction(moveAction)
+    present(actionAlert,animated: true)
+  }
+  
   func move(piece: inout BoardUnit, to destination: BoardCell) {
     boardView.boardCellArr[piece.xCoord][piece.yCoord].removePiece()
     piece.moveTo(cell: destination)
-  }
-  
-  func setPieces() {
-    for char in player1CharData {
-      boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
-      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
-    }
-    for char in player2CharData {
-      boardView.boardCellArr[char.xCoord][char.yCoord].unitToDraw = 1
-      boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
-    }
+    turnEnd()
   }
   
   // friendly fire currently exists btw
@@ -135,6 +142,11 @@ class MainBoardView: UIViewController {
       }
       currAttackLocation.1 += increment
     }
+    turnEnd()
   }
   
+  func turnEnd() {
+    playerTurn = 3 - playerTurn
+    playerTurnLabel!.text = "Player \(playerTurn)'s turn"
+  }
 }
