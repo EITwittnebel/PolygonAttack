@@ -95,14 +95,16 @@ class BoardSetupViewController: UIViewController {
     
     func drawNewUnit(at cell: BoardSetupCell, of player: Int, completionHandler: @escaping ((GameUnit) -> Void)) {
         if player == 0 && player0TotalUnits < Settings.playerMaxStartUnits ||
-            player == 1 && player1TotalUnits < Settings.playerMaxStartUnits {
+            player == 1 && player1TotalUnits < Settings.playerMaxStartUnits || cell.cellUnit != nil {
             
             let selectionVC = UnitSelectionViewController()
             selectionVC.completionHandler = { [unowned self, player] (unit: GameUnit) in
-                if player == 0 {
-                    self.player0TotalUnits += 1
-                } else if player == 1 {
-                    self.player1TotalUnits += 1
+                if cell.cellUnit == nil {
+                    if player == 0 {
+                        self.player0TotalUnits += 1
+                    } else if player == 1 {
+                        self.player1TotalUnits += 1
+                    }
                 }
                 completionHandler(unit)
             }

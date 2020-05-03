@@ -114,8 +114,8 @@
 		86A3EE21245F727000D04B06 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */,
 				86A3EE26245F72AD00D04B06 /* BoardSetupView.swift */,
+				86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */,
 				86A3EE25245F72AD00D04B06 /* CastleCell.swift */,
 				3AA36FD7244F7CFE002225B0 /* BoardView.swift */,
 				3AA36FD8244F7CFE002225B0 /* BoardCell.swift */,
