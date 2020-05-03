@@ -8,21 +8,22 @@
 
 import UIKit
 
-class BoardView: UIView {
+class BoardSetupView: UIView {
     
     let viewWidth: CGFloat
     let unitWidth: CGFloat
     
-    var image2M: BoardCell!
-    var boardCellArr: [[BoardCell]]
+    var cell2M: BoardSetupCell!
+    var boardCellArr: [[BoardSetupCell]]
+    
+    weak var preGameVC: BoardSetupViewController!
     
     let factory: UnitFactory = UnitFactory()
-    weak var preGameVC: PreGameVC!
     
     override init(frame: CGRect) {
         viewWidth = frame.size.width
         unitWidth = viewWidth / CGFloat(Settings.boardXPieces)
-        boardCellArr = [[BoardCell]].init(repeating: [], count: Settings.boardXPieces)
+        boardCellArr = [[BoardSetupCell]].init(repeating: [], count: Settings.boardXPieces)
         super.init(frame: frame)
         self.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         setupBoard(frame: frame)
@@ -37,22 +38,20 @@ class BoardView: UIView {
         let minX = CGFloat(0)
         let minY = CGFloat(0)
         
-        var cellIndex = 0
         for yloop in 0..<Settings.boardYPieces {
             for xloop in 0..<Settings.boardXPieces {
                 let frame = CGRect(x: CGFloat(minX + CGFloat(xloop) * unitWidth),
                                    y: CGFloat(minY + CGFloat(yloop) * unitWidth),
                                    width: unitWidth, height: unitWidth)
-                let image2D = BoardCell(frame: frame, xCoodInBoard: xloop, yCoodInBoard: yloop)
-               
-                if (yloop >= Settings.boardYPieces / 2) {
-                  image2D.backgroundColor = .green
-                } else {
-                  image2D.backgroundColor = .cyan
-                }
+                let image2D = BoardSetupCell(frame: frame, xCoodInBoard: xloop, yCoodInBoard: yloop)
                 image2D.highlightBorder(with: .black)
+                if (yloop < Settings.boardYPieces / 2) {
+                    image2D.backgroundColor = .darkGray
+                } else {
+                    image2D.backgroundColor = .cyan
+                }
                 
-                cellIndex = cellIndex + 1
+                image2D.delegate = self
                 self.addSubview(image2D)
                 boardCellArr[xloop].append(image2D)
                 
@@ -66,15 +65,15 @@ class BoardView: UIView {
     }
     
     func reportGameCondition(_ playerNum: Int) -> [BoardUnit] {
-      
+        
         var gameCondition: [BoardUnit] = []
         for yloop in 0..<Settings.boardYPieces {
             for xloop in 0..<Settings.boardXPieces {
                 let cell = boardCellArr[xloop][yloop]
-                if cell.image != nil {
-                  if (checkCellOwner(cellCood: cell.coordinates) == playerNum) {
-                    gameCondition.append(factory.createUnit(toCreate: cell.cellUnit, posX: xloop, posY: yloop))
-                  }
+                if let cellUnit = cell.cellUnit {
+                    if (checkCellOwner(cellCood: cell.coordinates) == playerNum) {
+                        gameCondition.append(factory.createUnit(toCreate: cellUnit.unitType, posX: xloop, posY: yloop))
+                    }
                 }
             }
         }
@@ -89,27 +88,51 @@ class BoardView: UIView {
             return 1
         }
     }
-  
-  func cellHasUnit(xCoordinate: Int, yCoordinate: Int) -> Bool {
-    return !(boardCellArr[xCoordinate][yCoordinate].cellUnit == .none)
-  }
 }
 
-extension BoardView: UIDragInteractionDelegate {
-    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
-        image2M = interaction.view as? BoardCell
-        guard let image = image2M.image else { return [] }
-        let provider = NSItemProvider(object: image)
-        let item = UIDragItem(itemProvider: provider)
-        item.localObject = image
-        //        print("sourceIndex \(sourceCood)")
-        return [item]
+extension BoardSetupView: BoardSetupCellDelegate {
+    func singleTapped(_ cell: BoardSetupCell, completionHandler: @escaping ((GameUnit) -> Void)) {
+        preGameVC.drawNewUnit(at: cell, of: checkCellOwner(cellCood: cell.coordinates), completionHandler: completionHandler)
     }
 }
 
-extension BoardView: UIDropInteractionDelegate {
+extension BoardSetupView: UIDragInteractionDelegate {
+    func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
+        cell2M = interaction.view as? BoardSetupCell
+        guard let image = cell2M.image else { return [] }
+        let provider = NSItemProvider(object: image)
+        let item = UIDragItem(itemProvider: provider)
+        item.localObject = image
+        return [item]
+    }
+    
+    func dragInteraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem, session: UIDragSession) -> UITargetedDragPreview? {
+        let interactingCell = interaction.view as! BoardSetupCell
+        guard let image = item.localObject as? UIImage else { return nil }
+        
+        let frame = CGRect(x: 0, y: 0, width: unitWidth, height: unitWidth)
+        
+        let previewImageView = UIImageView(image: image)
+        previewImageView.contentMode = .scaleAspectFit
+        previewImageView.frame = frame
+        
+        /*
+         Provide a custom targeted drag preview that lifts from the center of imageView. The center is calculated because it needs to be in the coordinate system of imageView. Using imageView.center returns a point that is in the coordinate system of imageView's superview, which is not what is needed here.
+         */
+        let center = CGPoint(x: interactingCell.bounds.midX, y: interactingCell.bounds.midY)
+        let target = UIDragPreviewTarget(container: interactingCell, center: center)
+        return UITargetedDragPreview(view: previewImageView, parameters: UIDragPreviewParameters(), target: target)
+    }
+}
+
+extension BoardSetupView: UIDropInteractionDelegate {
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
-        return session.items.count == 1
+        if session.items.count == 1 {
+            if let _ = session.items.first!.localObject as? UIImage {
+                return true
+            }
+        }
+        return false
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidEnter session: UIDropSession) {
@@ -123,8 +146,8 @@ extension BoardView: UIDropInteractionDelegate {
         let dropLocation = session.location(in: self)
         if let dropCood = getCoordinate(from: dropLocation) {
             let dropCell = boardCellArr[dropCood.0][dropCood.1]
-            if checkCellOwner(cellCood: image2M.coordinates) == checkCellOwner(cellCood: dropCood)
-            && dropCell.image == nil {
+            if checkCellOwner(cellCood: cell2M.coordinates) == checkCellOwner(cellCood: dropCood)
+                && dropCell.image == nil {
                 return UIDropProposal(operation: .move)
             }
         }
@@ -137,21 +160,11 @@ extension BoardView: UIDropInteractionDelegate {
             let images = imageItems as! [UIImage]
             let dropLocation: CGPoint = session.location(in: self)
             if let coordinate = self.getCoordinate(from: dropLocation),
-                coordinate != self.image2M.coordinates {
-                self.boardCellArr[coordinate.0][coordinate.1].image = images.first
-                self.boardCellArr[coordinate.0][coordinate.1].cellUnit = self.image2M.cellUnit
-                self.image2M.image = nil
-                self.image2M.cellUnit = .none
-                
-                let sourceCood = self.image2M.coordinates
-                if sourceCood.1 < 0 {
-                    self.preGameVC.player0TotalUnits += 1
-                    self.preGameVC.drawNewUnit()
-                } else if sourceCood.1 >= Settings.boardYPieces {
-                    self.preGameVC.player1TotalUnits += 1
-                    self.preGameVC.drawNewUnit()
-                }
-                //                print("objectIndex \(self.objectCood)")
+                coordinate != self.cell2M.coordinates {
+                self.boardCellArr[coordinate.0][coordinate.1].image = images.first // This is not necessary
+                self.boardCellArr[coordinate.0][coordinate.1].cellUnit = self.cell2M.cellUnit
+                self.cell2M.image = nil
+                self.cell2M.cellUnit = nil
             }
         }
     }
@@ -189,7 +202,7 @@ extension BoardView: UIDropInteractionDelegate {
             let dropCell = boardCellArr[dropCood.0][dropCood.1]
             if dropCell.image != nil {
                 dropCell.highlightBorder(with: .red)
-            } else if checkCellOwner(cellCood: image2M.coordinates) == checkCellOwner(cellCood: dropCood) {
+            } else if checkCellOwner(cellCood: cell2M.coordinates) == checkCellOwner(cellCood: dropCood) {
                 dropCell.highlightBorder(with: .green)
             } else {
                 dropCell.highlightBorder(with: .red)

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PY7-oC-Z6x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PY7-oC-Z6x">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Pre GameVC-->
+        <!--Board Setup View Controller-->
         <scene sceneID="VxJ-cT-enJ">
             <objects>
-                <viewController id="3J2-Mx-aRb" customClass="PreGameVC" customModule="PolygonAttack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3J2-Mx-aRb" customClass="BoardSetupViewController" customModule="PolygonAttack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fBU-4v-gnZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPi-uF-fKn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1392.753623188406" y="-208.25892857142856"/>
+            <point key="canvasLocation" x="810" y="-208"/>
         </scene>
         <!--Main Board View-->
         <scene sceneID="V8t-0U-F42">
@@ -43,25 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sno-Hv-cj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260.8695652173915" y="-208.25892857142856"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="faD-8I-wOW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="StZ-Rj-Ud2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qX9-a4-maf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3J2-Mx-aRb" kind="relationship" relationship="rootViewController" id="GeC-sL-hgl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cXQ-tJ-Xm8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="482.60869565217394" y="-208.25892857142856"/>
+            <point key="canvasLocation" x="1678" y="-208"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="DRu-3G-bXx">
@@ -196,7 +178,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="StZ-Rj-Ud2" kind="presentation" modalPresentationStyle="fullScreen" id="RbE-cn-1OA"/>
+                                            <segue destination="3J2-Mx-aRb" kind="presentation" modalPresentationStyle="fullScreen" id="N04-X4-RCH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvu-tm-qAf">

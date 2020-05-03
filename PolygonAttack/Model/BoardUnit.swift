@@ -14,7 +14,7 @@ protocol Attacker {
 }
 
 protocol BoardUnit {
-  var name: Unit { get }
+  var name: UnitType { get }
   var imageIndex: Int { get }
   var xCoord: Int { get set }
   var yCoord: Int { get set }
@@ -35,7 +35,7 @@ extension BoardUnit {
 }
 
 class UnitFactory {
-  func createUnit(toCreate: Unit, posX: Int, posY: Int) -> BoardUnit {
+  func createUnit(toCreate: UnitType, posX: Int, posY: Int) -> BoardUnit {
     switch toCreate {
     case .ninja:
       return Ninja(Posx: posX, Posy: posY)
@@ -50,7 +50,7 @@ class UnitFactory {
 }
 
 class Ninja: BoardUnit, Attacker {
-  var name: Unit = .ninja
+  var name: UnitType = .ninja
   var xCoord: Int
   var yCoord: Int
   var isMoving: Bool
@@ -68,7 +68,7 @@ class Ninja: BoardUnit, Attacker {
 }
 
 class Baby: BoardUnit, Attacker {
-  var name: Unit = .baby
+  var name: UnitType = .baby
   var xCoord: Int
   var yCoord: Int
   var isMoving: Bool
@@ -86,7 +86,7 @@ class Baby: BoardUnit, Attacker {
 }
 
 class Blonde: BoardUnit, Attacker {
-  var name: Unit = .blonde
+  var name: UnitType = .blonde
   var xCoord: Int
   var yCoord: Int
   var isMoving: Bool

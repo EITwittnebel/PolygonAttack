@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35503C2435327200BE01C2 /* MainBoardView.swift */; };
-		3AA36FD6244F7CF7002225B0 /* PreGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */; };
 		3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD7244F7CFE002225B0 /* BoardView.swift */; };
 		3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD8244F7CFE002225B0 /* BoardCell.swift */; };
 		3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDB244F7D07002225B0 /* Settings.swift */; };
-		3AA36FDE244F7D07002225B0 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDC244F7D07002225B0 /* Unit.swift */; };
 		3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF020C245E0AA80031666B /* LoginViewController.swift */; };
 		3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF020E245E10300031666B /* AcRegisterViewController.swift */; };
 		3ABF0212245E120C0031666B /* LoginDetails.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */; };
@@ -23,15 +21,19 @@
 		3AD3B93D2434FE1B009E8590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B93B2434FE1B009E8590 /* Main.storyboard */; };
 		3AD3B93F2434FE1D009E8590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B93E2434FE1D009E8590 /* Assets.xcassets */; };
 		3AD3B9422434FE1D009E8590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */; };
+		86A3EE24245F729900D04B06 /* GameUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE23245F729900D04B06 /* GameUnit.swift */; };
+		86A3EE28245F72AD00D04B06 /* CastleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE25245F72AD00D04B06 /* CastleCell.swift */; };
+		86A3EE29245F72AD00D04B06 /* BoardSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE26245F72AD00D04B06 /* BoardSetupView.swift */; };
+		86A3EE2A245F72AD00D04B06 /* BoardSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */; };
+		86A3EE2D245F72B900D04B06 /* BoardSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */; };
+		86A3EE2E245F72B900D04B06 /* UnitSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A35503C2435327200BE01C2 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
-		3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameVC.swift; sourceTree = "<group>"; };
 		3AA36FD7244F7CFE002225B0 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		3AA36FD8244F7CFE002225B0 /* BoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		3AA36FDB244F7D07002225B0 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		3AA36FDC244F7D07002225B0 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		3ABF020C245E0AA80031666B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3ABF020E245E10300031666B /* AcRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcRegisterViewController.swift; sourceTree = "<group>"; };
 		3ABF0211245E120C0031666B /* LoginDetails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoginDetails.xcdatamodel; sourceTree = "<group>"; };
@@ -44,6 +46,12 @@
 		3AD3B93E2434FE1D009E8590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AD3B9412434FE1D009E8590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AD3B9432434FE1D009E8590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86A3EE23245F729900D04B06 /* GameUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUnit.swift; sourceTree = "<group>"; };
+		86A3EE25245F72AD00D04B06 /* CastleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleCell.swift; sourceTree = "<group>"; };
+		86A3EE26245F72AD00D04B06 /* BoardSetupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupView.swift; sourceTree = "<group>"; };
+		86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupCell.swift; sourceTree = "<group>"; };
+		86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupViewController.swift; sourceTree = "<group>"; };
+		86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,18 +65,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3ABF020B245E00E50031666B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
-				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
-				3AA36FD5244F7CF7002225B0 /* PreGameVC.swift */,
-				3ABF020C245E0AA80031666B /* LoginViewController.swift */,
-				3ABF020E245E10300031666B /* AcRegisterViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		3AD3B9292434FE1A009E8590 = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +86,9 @@
 			children = (
 				3AD3B9372434FE1B009E8590 /* SceneDelegate.swift */,
 				3AD3B9352434FE1B009E8590 /* AppDelegate.swift */,
-				3ABF020B245E00E50031666B /* ViewControllers */,
-				3AA36FDB244F7D07002225B0 /* Settings.swift */,
-				3AA36FDC244F7D07002225B0 /* Unit.swift */,
-				3AA36FD7244F7CFE002225B0 /* BoardView.swift */,
-				3AA36FD8244F7CFE002225B0 /* BoardCell.swift */,
-				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
+				86A3EE22245F727300D04B06 /* Model */,
+				86A3EE21245F727000D04B06 /* View */,
+				86A3EE20245F726800D04B06 /* Controller */,
 				3AD3B93B2434FE1B009E8590 /* Main.storyboard */,
 				3AD3B93E2434FE1D009E8590 /* Assets.xcassets */,
 				3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */,
@@ -103,6 +96,41 @@
 				3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */,
 			);
 			path = PolygonAttack;
+			sourceTree = "<group>";
+		};
+		86A3EE20245F726800D04B06 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
+				86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */,
+				86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */,
+				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
+				3ABF020C245E0AA80031666B /* LoginViewController.swift */,
+				3ABF020E245E10300031666B /* AcRegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		86A3EE21245F727000D04B06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */,
+				86A3EE26245F72AD00D04B06 /* BoardSetupView.swift */,
+				86A3EE25245F72AD00D04B06 /* CastleCell.swift */,
+				3AA36FD7244F7CFE002225B0 /* BoardView.swift */,
+				3AA36FD8244F7CFE002225B0 /* BoardCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		86A3EE22245F727300D04B06 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AA36FDB244F7D07002225B0 /* Settings.swift */,
+				86A3EE23245F729900D04B06 /* GameUnit.swift */,
+				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,16 +204,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A3EE2E245F72B900D04B06 /* UnitSelectionViewController.swift in Sources */,
 				3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */,
-				3AA36FD6244F7CF7002225B0 /* PreGameVC.swift in Sources */,
 				3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */,
-				3AA36FDE244F7D07002225B0 /* Unit.swift in Sources */,
+				86A3EE29245F72AD00D04B06 /* BoardSetupView.swift in Sources */,
+				86A3EE28245F72AD00D04B06 /* CastleCell.swift in Sources */,
+				86A3EE24245F729900D04B06 /* GameUnit.swift in Sources */,
 				3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */,
 				3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */,
 				3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */,
 				3ACA4608243958A6006BFBBC /* BoardUnit.swift in Sources */,
+				86A3EE2D245F72B900D04B06 /* BoardSetupViewController.swift in Sources */,
 				3ABF0212245E120C0031666B /* LoginDetails.xcdatamodeld in Sources */,
 				3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */,
+				86A3EE2A245F72AD00D04B06 /* BoardSetupCell.swift in Sources */,
 				3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */,
 				3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */,
 				3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */,

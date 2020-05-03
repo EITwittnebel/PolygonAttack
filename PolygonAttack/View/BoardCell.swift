@@ -17,7 +17,7 @@ class BoardCell: UIImageView {
     }
     
     var unitToDraw = 0
-    var cellUnit: Unit = .none
+    var cellUnit: UnitType = .none
 
     init(frame: CGRect, xCoodInBoard xCood: Int, yCoodInBoard yCood: Int) {
         xCoordinate = xCood
@@ -68,7 +68,7 @@ class BoardCell: UIImageView {
         self.cellUnit = .none
     }
   
-    func reverseIndex(unit: Unit) -> Int {
+    func reverseIndex(unit: UnitType) -> Int {
       switch unit {
       case .ninja:
           return 0
