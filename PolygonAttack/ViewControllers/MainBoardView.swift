@@ -91,6 +91,7 @@ class MainBoardView: UIViewController {
         } else {
           if (pieceToMove != nil) {
             move(piece: &pieceToMove!, to: cell)
+            pieceToMove = nil
           }
         }
       }
