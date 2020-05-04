@@ -137,28 +137,56 @@ class MainBoardView: UIViewController {
       increment = 1
     }
     
+    var hitUnit: Bool = false
     currAttackLocation.1 += increment
     while ((currAttackLocation.1 >= 0) && (currAttackLocation.1 < (2 * rowsPerPlayer))) {
       if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
         // unit was attacked
+        hitUnit = true
         let attackedUnitCell = boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1]
         if (!Settings.friendlyFire) {
           let attackedPlayer = boardView.checkCellOwner(cellCood: currAttackLocation) + 1
           if (attackedPlayer == player) {
             // do nothing right now, maybe bypass the unit?
-            break
           } else {
-            attackedUnitCell.removePiece()
-            break
+            removePiece(atCell: attackedUnitCell)
           }
         } else {
-          attackedUnitCell.removePiece()
-          break
+          removePiece(atCell: attackedUnitCell)
         }
+        break
       }
       currAttackLocation.1 += increment
     }
+    
+    // no unit was in the way, attack the enemy castle
+    if (!hitUnit) {
+      attackCastle(by: player)
+    }
+    
     turnEnd()
+  }
+  
+  func removePiece(atCell: BoardCell) {
+    for index in 0..<player1CharData.count {
+      if (player1CharData[index].xCoord == atCell.xCoordinate && player1CharData[index].yCoord == atCell.yCoordinate) {
+        player1CharData.remove(at: index)
+      }
+    }
+    for index in 0..<player2CharData.count {
+      if (player2CharData[index].xCoord == atCell.xCoordinate && player2CharData[index].yCoord == atCell.yCoordinate) {
+        player2CharData.remove(at: index)
+      }
+    }
+    atCell.removePiece()
+  }
+  
+  func attackCastle(by player: Int) {
+    if player == 1 {
+      player2CastleHp -= 1
+    } else {
+      player1CastleHp -= 1
+    }
   }
   
   func turnEnd() {
@@ -168,7 +196,7 @@ class MainBoardView: UIViewController {
     playerTurn = 3 - playerTurn
     playerTurnLabel!.text = "Player \(playerTurn)'s turn"
   }
-    
+  
   func createCastleCells(aboveAndBelow boardView: UIView, of height: CGFloat) {
     let castle0 = CastleCell(frame: .zero, image: UIImage(named: "castle-color"))
     castle0.highlightBorder(with: .black)
