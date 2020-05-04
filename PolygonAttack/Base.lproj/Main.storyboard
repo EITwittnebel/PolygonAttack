@@ -18,11 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="QN9-tD-AMv"/>
                     </view>
                     <navigationItem key="navigationItem" id="avD-UH-Z9q">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="2gh-yH-e89">
-                            <connections>
-                                <segue destination="wan-t4-rUe" kind="modal" modalPresentationStyle="fullScreen" id="hNf-Oh-gEl"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="2gh-yH-e89"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPi-uF-fKn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

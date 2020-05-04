@@ -33,7 +33,7 @@ class BoardSetupViewController: UIViewController {
         let viewProportion = view.frame.height / view.frame.width
         guard boardProportion < viewProportion else { fatalError("Board is too long") }
         
-        let sideMargin = CGFloat(32)
+        let sideMargin = Settings.boardSideMargin
         let boardWidth = view.frame.width - sideMargin * 2
         boardCellWidth = boardWidth / CGFloat(Settings.boardXPieces)
         let boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
@@ -93,12 +93,12 @@ class BoardSetupViewController: UIViewController {
         }
     }
     
-    func drawNewUnit(at cell: BoardSetupCell, of player: Int, completionHandler: @escaping ((GameUnit) -> Void)) {
+    func drawNewUnit(at cell: BoardSetupCell, of player: Int, completionHandler: @escaping ((BoardSetupUnit) -> Void)) {
         if player == 0 && player0TotalUnits < Settings.playerMaxStartUnits ||
             player == 1 && player1TotalUnits < Settings.playerMaxStartUnits || cell.cellUnit != nil {
             
             let selectionVC = UnitSelectionViewController()
-            selectionVC.completionHandler = { [unowned self, player] (unit: GameUnit) in
+            selectionVC.completionHandler = { [unowned self, player] (unit: BoardSetupUnit) in
                 if cell.cellUnit == nil {
                     if player == 0 {
                         self.player0TotalUnits += 1

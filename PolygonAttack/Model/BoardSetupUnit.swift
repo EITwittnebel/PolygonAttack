@@ -8,13 +8,13 @@
 
 import Foundation
 
-let allAvailableUnit: [GameUnit] = [
-    GameUnit(unitType: .ninja, imageName: "ninja"),
-    GameUnit(unitType: .baby, imageName: "baby"),
-    GameUnit(unitType: .blonde, imageName: "blonde_girl")
+let allAvailableUnit: [BoardSetupUnit] = [
+    BoardSetupUnit(unitType: .ninja, imageName: "ninja"),
+    BoardSetupUnit(unitType: .baby, imageName: "baby"),
+    BoardSetupUnit(unitType: .blonde, imageName: "blonde_girl")
 ]
 
-struct GameUnit {
+struct BoardSetupUnit {
     let unitType: UnitType
     let imageName: String
 }

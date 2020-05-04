@@ -16,7 +16,6 @@ class BoardCell: UIImageView {
         (xCoordinate, yCoordinate)
     }
     
-    var unitToDraw = 0
     var cellUnit: UnitType = .none
 
     init(frame: CGRect, xCoodInBoard xCood: Int, yCoodInBoard yCood: Int) {
@@ -45,7 +44,6 @@ class BoardCell: UIImageView {
     }
   
     func drawUnit(index: Int) {
-        guard unitToDraw > 0 else { return }
         switch index {
         case 0:
             self.image = UIImage(named: "ninja")
@@ -60,7 +58,6 @@ class BoardCell: UIImageView {
             self.image = nil
             self.cellUnit = .none
         }
-        unitToDraw -= 1
     }
   
     func removePiece() {

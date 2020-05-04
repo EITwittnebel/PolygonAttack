@@ -21,7 +21,7 @@
 		3AD3B93D2434FE1B009E8590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B93B2434FE1B009E8590 /* Main.storyboard */; };
 		3AD3B93F2434FE1D009E8590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B93E2434FE1D009E8590 /* Assets.xcassets */; };
 		3AD3B9422434FE1D009E8590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */; };
-		86A3EE24245F729900D04B06 /* GameUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE23245F729900D04B06 /* GameUnit.swift */; };
+		86A3EE24245F729900D04B06 /* BoardSetupUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE23245F729900D04B06 /* BoardSetupUnit.swift */; };
 		86A3EE28245F72AD00D04B06 /* CastleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE25245F72AD00D04B06 /* CastleCell.swift */; };
 		86A3EE29245F72AD00D04B06 /* BoardSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE26245F72AD00D04B06 /* BoardSetupView.swift */; };
 		86A3EE2A245F72AD00D04B06 /* BoardSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */; };
@@ -46,7 +46,7 @@
 		3AD3B93E2434FE1D009E8590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AD3B9412434FE1D009E8590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AD3B9432434FE1D009E8590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86A3EE23245F729900D04B06 /* GameUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUnit.swift; sourceTree = "<group>"; };
+		86A3EE23245F729900D04B06 /* BoardSetupUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupUnit.swift; sourceTree = "<group>"; };
 		86A3EE25245F72AD00D04B06 /* CastleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleCell.swift; sourceTree = "<group>"; };
 		86A3EE26245F72AD00D04B06 /* BoardSetupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupView.swift; sourceTree = "<group>"; };
 		86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupCell.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				3AA36FDB244F7D07002225B0 /* Settings.swift */,
-				86A3EE23245F729900D04B06 /* GameUnit.swift */,
+				86A3EE23245F729900D04B06 /* BoardSetupUnit.swift */,
 				3ACA4607243958A6006BFBBC /* BoardUnit.swift */,
 			);
 			path = Model;
@@ -209,7 +209,7 @@
 				3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */,
 				86A3EE29245F72AD00D04B06 /* BoardSetupView.swift in Sources */,
 				86A3EE28245F72AD00D04B06 /* CastleCell.swift in Sources */,
-				86A3EE24245F729900D04B06 /* GameUnit.swift in Sources */,
+				86A3EE24245F729900D04B06 /* BoardSetupUnit.swift in Sources */,
 				3AD3B93A2434FE1B009E8590 /* ViewController.swift in Sources */,
 				3ABF020F245E10300031666B /* AcRegisterViewController.swift in Sources */,
 				3AD3B9362434FE1B009E8590 /* AppDelegate.swift in Sources */,

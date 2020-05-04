@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BoardSetupCellDelegate: class {
-    func singleTapped(_ cell: BoardSetupCell, completionHandler: @escaping ((GameUnit) -> Void))
+    func singleTapped(_ cell: BoardSetupCell, completionHandler: @escaping ((BoardSetupUnit) -> Void))
 }
 
 class BoardSetupCell: UIImageView {
@@ -22,7 +22,7 @@ class BoardSetupCell: UIImageView {
         (xCoordinate, yCoordinate)
     }
     
-    var cellUnit: GameUnit? {
+    var cellUnit: BoardSetupUnit? {
         didSet {
             if let cellUnit = cellUnit {
                 self.image = UIImage(named: cellUnit.imageName)

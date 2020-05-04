@@ -28,7 +28,6 @@ extension BoardUnit {
     isMoving = false
     xCoord = cell.xCoordinate
     yCoord = cell.yCoordinate
-    cell.unitToDraw = 1
     cell.cellUnit = name
     cell.drawUnit(index: imageIndex)
   }

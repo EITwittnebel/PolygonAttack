@@ -6,7 +6,7 @@
 //  Copyright © 2020 Gavin Li. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Settings {
     static let boardXPieces: Int = 4
@@ -15,4 +15,8 @@ enum Settings {
     static let boardYPieces: Int = 6
     
     static let playerMaxStartUnits: Int = 3
+    
+    static let player0TerritoryColor: UIColor = .darkGray
+    static let player1TerritoryColor: UIColor = .cyan
+    static let boardSideMargin: CGFloat = 32.0
 }

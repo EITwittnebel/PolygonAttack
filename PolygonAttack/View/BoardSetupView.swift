@@ -34,7 +34,6 @@ class BoardSetupView: UIView {
     }
     
     func setupBoard(frame: CGRect) {
-        
         let minX = CGFloat(0)
         let minY = CGFloat(0)
         
@@ -46,9 +45,9 @@ class BoardSetupView: UIView {
                 let image2D = BoardSetupCell(frame: frame, xCoodInBoard: xloop, yCoodInBoard: yloop)
                 image2D.highlightBorder(with: .black)
                 if (yloop < Settings.boardYPieces / 2) {
-                    image2D.backgroundColor = .darkGray
+                    image2D.backgroundColor = Settings.player0TerritoryColor
                 } else {
-                    image2D.backgroundColor = .cyan
+                    image2D.backgroundColor = Settings.player1TerritoryColor
                 }
                 
                 image2D.delegate = self
@@ -91,7 +90,7 @@ class BoardSetupView: UIView {
 }
 
 extension BoardSetupView: BoardSetupCellDelegate {
-    func singleTapped(_ cell: BoardSetupCell, completionHandler: @escaping ((GameUnit) -> Void)) {
+    func singleTapped(_ cell: BoardSetupCell, completionHandler: @escaping ((BoardSetupUnit) -> Void)) {
         preGameVC.drawNewUnit(at: cell, of: checkCellOwner(cellCood: cell.coordinates), completionHandler: completionHandler)
     }
 }

@@ -9,15 +9,15 @@
 import UIKit
 
 protocol UnitSelectionViewControllerDelegate {
-    func unitSelectionViewController(_ controller: UnitSelectionViewController, didSelectUnit unit: GameUnit)
+    func unitSelectionViewController(_ controller: UnitSelectionViewController, didSelectUnit unit: BoardSetupUnit)
 }
 
 class UnitSelectionViewController: UIViewController {
     
     var tableView: UITableView!
     
-    var gameUnits: [GameUnit]?
-    var completionHandler: ((GameUnit) -> Void)?
+    var gameUnits: [BoardSetupUnit]?
+    var completionHandler: ((BoardSetupUnit) -> Void)?
     var delegate: UnitSelectionViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class UnitSelectionViewController: UIViewController {
         addGameUnits(units: allAvailableUnit)
     }
     
-    func addGameUnits(units: [GameUnit]) {
+    func addGameUnits(units: [BoardSetupUnit]) {
         self.gameUnits = units
         tableView.reloadData()
     }
