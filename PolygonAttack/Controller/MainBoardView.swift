@@ -171,11 +171,14 @@ class MainBoardView: UIViewController {
     for index in 0..<player1CharData.count {
       if (player1CharData[index].xCoord == atCell.xCoordinate && player1CharData[index].yCoord == atCell.yCoordinate) {
         player1CharData.remove(at: index)
+        break
       }
     }
     for index in 0..<player2CharData.count {
+      print(index)
       if (player2CharData[index].xCoord == atCell.xCoordinate && player2CharData[index].yCoord == atCell.yCoordinate) {
         player2CharData.remove(at: index)
+        break
       }
     }
     atCell.removePiece()
@@ -190,11 +193,21 @@ class MainBoardView: UIViewController {
   }
   
   func turnEnd() {
-   /* if (isGameFinished()) {
-      do something
-    }*/
-    playerTurn = 3 - playerTurn
-    playerTurnLabel!.text = "Player \(playerTurn)'s turn"
+    if let winner = gameWinner() {
+      playerTurnLabel!.text = "Player \(winner) won!"
+    } else {
+      playerTurn = 3 - playerTurn
+      playerTurnLabel!.text = "Player \(playerTurn)'s turn"
+    }
+  }
+  
+  func gameWinner() -> Int? {
+    if player1CharData.count == 0 || player1CastleHp <= 0 {
+      return 2
+    } else if player2CharData.count == 0 || player2CastleHp <= 0 {
+      return 1
+    }
+    return nil
   }
   
   func createCastleCells(aboveAndBelow boardView: UIView, of height: CGFloat) {
