@@ -14,9 +14,11 @@ enum Settings {
     // this value must be even
     static let boardYPieces: Int = 6
     
-    static let playerMaxStartUnits: Int = 3
+    static let playerMaxStartUnits: Int = 2
     
-    static let player0TerritoryColor: UIColor = .darkGray
+    static let player0TerritoryColor: UIColor = .lightGray
     static let player1TerritoryColor: UIColor = .cyan
     static let boardSideMargin: CGFloat = 32.0
+  
+    static let friendlyFire: Bool = false
 }
