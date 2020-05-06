@@ -10,7 +10,8 @@ import UIKit
 
 
 protocol Attacker {
-  func attack(onBoard boardView: BoardView)
+  var strength: Int { get set }
+  func getAttackableCells(onBoard boardView: BoardView) -> [BoardCell]
 }
 
 protocol BoardUnit {
@@ -19,8 +20,18 @@ protocol BoardUnit {
   var xCoord: Int { get set }
   var yCoord: Int { get set }
   var isMoving: Bool { get set }
+  var moveRadius: Int { get }
+  var health: Int { get set }
+  var owner: Int { get }
   
   mutating func moveTo(cell: BoardCell)
+  
+  func takeDamage(amount: Int)
+}
+
+protocol Healer {
+  var healPower: Int { get set }
+  func getHealableCells(onBoard boardView: BoardView) -> [BoardCell]
 }
 
 extension BoardUnit {
@@ -54,15 +65,57 @@ class Ninja: BoardUnit, Attacker {
   var yCoord: Int
   var isMoving: Bool
   var imageIndex: Int = 0
+  var moveRadius: Int = -1
+  var health: Int = 2
+  var owner: Int
+  var strength: Int = 1
   
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
     yCoord = Posy
     isMoving = false
+    if (yCoord < Settings.boardYPieces/2) {
+      owner = 1
+    } else {
+      owner = 2
+    }
   }
   
-  func attack(onBoard boardView: BoardView) {
+  func getAttackableCells(onBoard boardView: BoardView) -> [BoardCell] {
+    let player = owner
+    var retCells: [BoardCell] = []
+    let initAttackLocation: (Int, Int) = (xCoord, yCoord)
+    var currAttackLocation: (Int, Int) = (xCoord, yCoord)
     
+    var vertIncrement: Int = -1
+    var horIncrement: Int = -1
+    if (player == 1) {
+      vertIncrement = 1
+    }
+    
+    // One loop for each diagonal to look at
+    for _ in 0...1 {
+      currAttackLocation = initAttackLocation
+      currAttackLocation.1 += vertIncrement
+      currAttackLocation.0 += horIncrement
+      while ((currAttackLocation.1 >= 0) && (currAttackLocation.1 < Settings.boardYPieces) &&
+        (currAttackLocation.0 >= 0) && (currAttackLocation.0 < Settings.boardXPieces)) {
+        if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
+          // unit is attackable
+          retCells.append(boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1])
+          break
+        }
+        currAttackLocation.1 += vertIncrement
+        currAttackLocation.0 += horIncrement
+      }
+      horIncrement *= -1
+    }
+    
+    return retCells
+  }
+  
+  func takeDamage(amount: Int) {
+    health -= amount
   }
 }
 
@@ -72,32 +125,119 @@ class Baby: BoardUnit, Attacker {
   var yCoord: Int
   var isMoving: Bool
   var imageIndex: Int = 1
+  var moveRadius: Int = 2
+  var health: Int = 2
+  var owner: Int
+  var strength: Int = 1
   
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
     yCoord = Posy
     isMoving = false
+    if (yCoord < Settings.boardYPieces/2) {
+      owner = 1
+    } else {
+      owner = 2
+    }
   }
   
-  func attack(onBoard boardView: BoardView) {
+  func getAttackableCells(onBoard boardView: BoardView) -> [BoardCell] {
+    let player = owner
+    var currAttackLocation: (Int, Int) = (xCoord, yCoord)
+    var increment: Int = -1
+    if (player == 1) {
+      increment = 1
+    }
     
+    currAttackLocation.1 += increment
+    while ((currAttackLocation.1 >= 0) && (currAttackLocation.1 < Settings.boardYPieces)) {
+      if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
+        // unit is attackable
+        let attackedUnitCell = boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1]
+        return [attackedUnitCell]
+      }
+      currAttackLocation.1 += increment
+    }
+    return []
+  }
+  
+  func takeDamage(amount: Int) {
+    health -= amount
   }
 }
 
-class Blonde: BoardUnit, Attacker {
+class Blonde: BoardUnit, Attacker, Healer {
   var name: UnitType = .blonde
   var xCoord: Int
   var yCoord: Int
   var isMoving: Bool
   var imageIndex: Int = 2
-  
+  var moveRadius: Int = 2
+  var health: Int = 2
+  var owner: Int
+  var strength: Int = 1
+  var healPower: Int = 1
+
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
     yCoord = Posy
     isMoving = false
+    if (yCoord < Settings.boardYPieces/2) {
+      owner = 1
+    } else {
+      owner = 2
+    }
   }
   
-  func attack(onBoard boardView: BoardView) {
+  func getAttackableCells(onBoard boardView: BoardView) -> [BoardCell] {
+    let player = owner
+    var currAttackLocation: (Int, Int) = (xCoord, yCoord)
+    var increment: Int = -1
+    if (player == 1) {
+      increment = 1
+    }
     
+    currAttackLocation.1 += increment
+    while ((currAttackLocation.1 >= 0) && (currAttackLocation.1 < Settings.boardYPieces)) {
+      if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
+        // unit is attackable
+        let attackedUnitCell = boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1]
+        return [attackedUnitCell]
+      }
+      currAttackLocation.1 += increment
+    }
+    return []
+  }
+  
+  func getHealableCells(onBoard boardView: BoardView) -> [BoardCell] {
+    let player = owner
+    var retCells: [BoardCell] = []
+    
+    if boardView.cellHasUnit(xCoordinate: xCoord-1, yCoordinate: yCoord) {
+      if (boardView.checkCellOwner(cellCood: (xCoord-1, yCoord)) == player - 1) {
+        retCells.append(boardView.boardCellArr[xCoord-1][yCoord])
+      }
+    }
+    if boardView.cellHasUnit(xCoordinate: xCoord, yCoordinate: yCoord-1) {
+      if (boardView.checkCellOwner(cellCood: (xCoord, yCoord-1)) == player - 1) {
+        retCells.append(boardView.boardCellArr[xCoord][yCoord-1])
+      }
+    }
+    if boardView.cellHasUnit(xCoordinate: xCoord+1, yCoordinate: yCoord) {
+      if (boardView.checkCellOwner(cellCood: (xCoord+1, yCoord)) == player - 1) {
+        retCells.append(boardView.boardCellArr[xCoord+1][yCoord])
+      }
+    }
+    if boardView.cellHasUnit(xCoordinate: xCoord, yCoordinate: yCoord+1) {
+      if (boardView.checkCellOwner(cellCood: (xCoord, yCoord+1)) == player - 1) {
+        retCells.append(boardView.boardCellArr[xCoord][yCoord+1])
+      }
+    }
+
+    return retCells
+  }
+  
+  func takeDamage(amount: Int) {
+    health -= amount
   }
 }
