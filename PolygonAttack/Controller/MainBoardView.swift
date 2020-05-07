@@ -126,7 +126,7 @@ class MainBoardView: UIViewController {
     let startLocationX = boardMinX + (dest.bounds.width * CGFloat(piece.xCoord)) + (dest.bounds.width/2)
     let startLocationY = boardMinY + (dest.bounds.width * CGFloat(piece.yCoord)) + (dest.bounds.width/2)
     
-    UIView.animate(withDuration: 0.001, animations: {self.sword!.transform = CGAffineTransform(translationX: startLocationX - self.sword!.center.x, y: startLocationY - self.sword!.center.y)})
+    UIView.animate(withDuration: 0.001, animations: {self.sword!.transform = CGAffineTransform(translationX: startLocationX - self.sword!.center.x, y: startLocationY - self.sword!.center.y)}, completion: nil)
     
     sword?.isHidden = false
     
@@ -138,6 +138,9 @@ class MainBoardView: UIViewController {
     UIView.animate(withDuration: 1.0, animations: {
       self.sword!.transform = CGAffineTransform(translationX: endLocationX - self.sword!.center.x, y: endLocationY - self.sword!.center.y)
      // self.sword?.image = nil
+    }, completion: {
+      _ in
+      self.sword?.isHidden = true
     })
     
     
