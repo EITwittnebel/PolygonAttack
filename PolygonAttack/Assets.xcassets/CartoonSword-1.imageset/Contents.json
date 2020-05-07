@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "CartoonSword-1.png",
       "idiom" : "universal",
-      "filename" : "CartoonSword.jpg",
       "scale" : "1x"
     },
     {
+      "filename" : "CartoonSword-2.png",
       "idiom" : "universal",
-      "filename" : "CartoonSword-1.jpg",
       "scale" : "2x"
     },
     {
+      "filename" : "CartoonSword-3.png",
       "idiom" : "universal",
-      "filename" : "CartoonSword-2.jpg",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

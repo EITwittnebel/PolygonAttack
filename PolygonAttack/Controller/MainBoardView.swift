@@ -47,7 +47,8 @@ class MainBoardView: UIViewController {
     sword = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     sword?.center.x = view.center.x
     sword?.center.y = 50
-    sword?.image = UIImage(named: "Sword")
+    sword?.image = UIImage(named: "CartoonSword-1")
+    sword?.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0)
     sword?.isHidden = true
     view.addSubview(sword!)
   }
@@ -90,7 +91,6 @@ class MainBoardView: UIViewController {
         if (boardView.checkCellOwner(cellCood: cell.coordinates) == playerTurn - 1) {
           if cell.cellUnit != .none {
             if (cell.backgroundColor == .green && pieceToHeal != nil) {
-              animateAttackFrom(piece: pieceToHeal as! BoardUnit, to: cell)
               sword?.isHidden = true
               heal(location: cell)
               pieceToHeal = nil
@@ -135,12 +135,29 @@ class MainBoardView: UIViewController {
     
    // UIView.animate(withDuration: 0.5, animations: {self.playerTurnLabel!.transform = CGAffineTransform(translationX: startLocationX - self.playerTurnLabel!.center.x, y: startLocationY - self.playerTurnLabel!.center.y)})
   
-    UIView.animate(withDuration: 1.0, animations: {
+    UIView.animate(withDuration: 0.5, animations: {
       self.sword!.transform = CGAffineTransform(translationX: endLocationX - self.sword!.center.x, y: endLocationY - self.sword!.center.y)
-     // self.sword?.image = nil
+     // self.sword?.image = ni
+      
     }, completion: {
       _ in
-      self.sword?.isHidden = true
+      UIView.animate(withDuration: 0.25, animations: {
+        dest.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        dest.backgroundColor = .red
+        self.sword?.isHidden = true
+      }, completion: {
+        _ in
+        UIView.animate(withDuration: 0.25, animations: {
+          dest.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+          if (self.boardView.checkCellOwner(cellCood: dest.coordinates) == 0) {
+            dest.backgroundColor = Settings.player0TerritoryColor
+          } else {
+            dest.backgroundColor = Settings.player1TerritoryColor
+          }
+        }, completion: {
+          _ in
+        })
+      })
     })
     
     
