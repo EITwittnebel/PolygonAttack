@@ -21,4 +21,5 @@ enum Settings {
     static let boardSideMargin: CGFloat = 32.0
   
     static let friendlyFire: Bool = false
+    static let sound: Bool = true
 }
