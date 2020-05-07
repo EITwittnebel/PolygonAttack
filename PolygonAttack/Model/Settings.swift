@@ -12,7 +12,7 @@ enum Settings {
     static let boardXPieces: Int = 4
     
     // this value must be even
-    static let boardYPieces: Int = 4
+    static let boardYPieces: Int = 6
     
     static let playerMaxStartUnits: Int = 2
     

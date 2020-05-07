@@ -109,9 +109,8 @@ class MainBoardView: UIViewController {
         } else {
           if (cell.backgroundColor == .red && pieceToAttack != nil) {
             playAttackAudio((pieceToAttack as! BoardUnit).name)
+            //this function also performs the attack
             animateAttackFrom(piece: pieceToAttack as! BoardUnit, to: cell)
-            attack(location: cell)
-            pieceToAttack = nil
           }
         }
       }
@@ -154,6 +153,8 @@ class MainBoardView: UIViewController {
           }
         }, completion: {
           _ in
+          self.attack(location: dest)
+          self.pieceToAttack = nil
         })
       })
     })
@@ -328,7 +329,16 @@ class MainBoardView: UIViewController {
       }
       pieceToAttack = attacker
       if (cells.count == 0) {
-        attackCastle(by: attackerInfo.0)
+        if ((attacker as! BoardUnit).name != .ninja) {
+          attackCastle(by: attackerInfo.0)
+        } else {
+          // special case for ninja, this really should be generalized though
+          let ninja = attacker as! Ninja
+          if ninja.canAttackCastle {
+            attackCastle(by: ninja.strength)
+            ninja.canAttackCastle = false
+          }
+        }
       }
     }
   }

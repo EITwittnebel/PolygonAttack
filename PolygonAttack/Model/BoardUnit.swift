@@ -69,6 +69,7 @@ class Ninja: BoardUnit, Attacker {
   var health: Int = 2
   var owner: Int
   var strength: Int = 1
+  var canAttackCastle = false
   
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
@@ -107,6 +108,9 @@ class Ninja: BoardUnit, Attacker {
         }
         currAttackLocation.1 += vertIncrement
         currAttackLocation.0 += horIncrement
+      }
+      if ((currAttackLocation.0 >= 0) && (currAttackLocation.0 < Settings.boardXPieces)) {
+        canAttackCastle = true
       }
       horIncrement *= -1
     }
