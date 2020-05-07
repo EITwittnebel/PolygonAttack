@@ -1,16 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "blonde_girl.png",
+      "filename" : "Cartoon Healer-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "blonde_girl-1.png",
+      "filename" : "Cartoon Healer-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Cartoon Healer-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
