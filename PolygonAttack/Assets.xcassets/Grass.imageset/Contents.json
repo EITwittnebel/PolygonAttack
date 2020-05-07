@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Kight.jpg",
+      "filename" : "grassBackground.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Kight-1.jpg",
+      "filename" : "grassBackground-1.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Kight-2.jpg",
+      "filename" : "grassBackground-2.jpg",
       "scale" : "3x"
     }
   ],
