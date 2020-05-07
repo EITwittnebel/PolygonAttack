@@ -9,21 +9,16 @@
 import UIKit
 
 class WinViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
+  var winner: Int?
   
-    @IBAction func ReturnButton(_ sender: Any) {
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Main Page") as! ViewController
-
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: false)
-        }
-    
-    
+  @IBOutlet weak var winLabel: UILabel!
+  @IBAction func ReturnButton(_ sender: Any) {
+    self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    winLabel.text = "Player \(winner!) Wins!"
+  }
+  
 }

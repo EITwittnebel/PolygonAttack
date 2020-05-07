@@ -424,8 +424,16 @@ class MainBoardView: UIViewController {
   
   func gameWinner() -> Int? {
     if player1CharData.count == 0 || player1CastleHp <= 0 {
+      let vc = storyboard?.instantiateViewController(identifier: "WinScreen") as! WinViewController
+      vc.winner = 2
+      vc.modalPresentationStyle = .fullScreen
+      present(vc, animated: true)
       return 2
     } else if player2CharData.count == 0 || player2CastleHp <= 0 {
+      let vc = storyboard?.instantiateViewController(identifier: "WinScreen") as! WinViewController
+      vc.winner = 1
+      vc.modalPresentationStyle = .fullScreen
+      present(vc, animated: true)
       return 1
     }
     return nil

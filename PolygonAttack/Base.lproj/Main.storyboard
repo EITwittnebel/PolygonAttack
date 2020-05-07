@@ -99,17 +99,20 @@
                             <constraint firstItem="hZZ-NQ-kpb" firstAttribute="trailing" secondItem="Bxb-eq-csF" secondAttribute="trailing" id="B3a-bT-qEC"/>
                             <constraint firstItem="6a6-zv-XF7" firstAttribute="leading" secondItem="Bxb-eq-csF" secondAttribute="leading" constant="20" id="YYf-ph-fdZ"/>
                             <constraint firstAttribute="bottom" secondItem="hZZ-NQ-kpb" secondAttribute="bottom" id="YnV-ow-pw3"/>
-                            <constraint firstItem="6a6-zv-XF7" firstAttribute="top" secondItem="Bxb-eq-csF" secondAttribute="top" constant="407" id="aQ0-Mk-6LN"/>
+                            <constraint firstItem="6a6-zv-XF7" firstAttribute="top" secondItem="Bxb-eq-csF" secondAttribute="top" priority="750" constant="407" id="aQ0-Mk-6LN"/>
                             <constraint firstItem="npO-1e-Kdv" firstAttribute="leading" secondItem="Bxb-eq-csF" secondAttribute="leading" constant="20" id="bFc-pH-Gn1"/>
                             <constraint firstItem="hZZ-NQ-kpb" firstAttribute="leading" secondItem="Bxb-eq-csF" secondAttribute="leading" id="ekz-X2-Bsy"/>
                             <constraint firstItem="hZZ-NQ-kpb" firstAttribute="top" secondItem="FDw-9S-chv" secondAttribute="top" id="fyF-oO-ZU3"/>
                             <constraint firstItem="Bxb-eq-csF" firstAttribute="trailing" secondItem="6a6-zv-XF7" secondAttribute="trailing" constant="20" id="qFH-uu-QNe"/>
                             <constraint firstItem="npO-1e-Kdv" firstAttribute="top" secondItem="6a6-zv-XF7" secondAttribute="bottom" constant="8" id="qmS-ld-BtC"/>
-                            <constraint firstItem="Bxb-eq-csF" firstAttribute="bottom" secondItem="npO-1e-Kdv" secondAttribute="bottom" constant="193" id="qxa-9I-gAP"/>
+                            <constraint firstItem="Bxb-eq-csF" firstAttribute="bottom" secondItem="npO-1e-Kdv" secondAttribute="bottom" priority="749" constant="193" id="qxa-9I-gAP"/>
                             <constraint firstItem="Bxb-eq-csF" firstAttribute="trailing" secondItem="npO-1e-Kdv" secondAttribute="trailing" constant="20" id="z2h-uS-LIy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bxb-eq-csF"/>
                     </view>
+                    <connections>
+                        <outlet property="winLabel" destination="6a6-zv-XF7" id="eIu-jE-Dq5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PtF-WM-OQO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
