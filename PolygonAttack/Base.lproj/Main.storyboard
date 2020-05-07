@@ -263,6 +263,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HX-qb-aZv">
                                 <rect key="frame" x="362" y="836" width="19" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="speaker.fill" catalog="system"/>
                                 <connections>
                                     <action selector="MuteButton:" destination="mDo-8H-S73" eventType="touchUpInside" id="x7Y-8o-bm9"/>
