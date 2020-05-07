@@ -31,7 +31,7 @@ class BoardSetupViewController: UIViewController {
         guard Settings.boardYPieces % 2 == 0 else { fatalError("Should have an even number of vertical pieces") }
         let boardProportion = CGFloat(Settings.boardYPieces + 2) / CGFloat(Settings.boardXPieces)
         let viewProportion = view.frame.height / view.frame.width
-        guard boardProportion < viewProportion else { fatalError("Board is too long") }
+       // guard boardProportion < viewProportion else { fatalError("Board is too long") }
         
         let sideMargin = Settings.boardSideMargin
         let boardWidth = view.frame.width - sideMargin * 2

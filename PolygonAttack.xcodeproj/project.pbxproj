@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35503C2435327200BE01C2 /* MainBoardView.swift */; };
 		3A83BB3E2464380D00CA87C7 /* Music&Sound in Resources */ = {isa = PBXBuildFile; fileRef = 3A83BB3D2464380D00CA87C7 /* Music&Sound */; };
+		3A9D0257246498490059A0EB /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D0256246498490059A0EB /* WinViewController.swift */; };
 		3AA36FD9244F7CFF002225B0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD7244F7CFE002225B0 /* BoardView.swift */; };
 		3AA36FDA244F7CFF002225B0 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FD8244F7CFE002225B0 /* BoardCell.swift */; };
 		3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA36FDB244F7D07002225B0 /* Settings.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		3A35503C2435327200BE01C2 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		3A83BB3D2464380D00CA87C7 /* Music&Sound */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = "Music&Sound"; sourceTree = "<group>"; };
+		3A9D0256246498490059A0EB /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WinViewController.swift; path = ../../WinViewController.swift; sourceTree = "<group>"; };
 		3AA36FD7244F7CFE002225B0 /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		3AA36FD8244F7CFE002225B0 /* BoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		3AA36FDB244F7D07002225B0 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		86A3EE20245F726800D04B06 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A9D0256246498490059A0EB /* WinViewController.swift */,
 				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
 				86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */,
 				86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */,
@@ -226,6 +229,7 @@
 				3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */,
 				86A3EE2A245F72AD00D04B06 /* BoardSetupCell.swift in Sources */,
 				3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */,
+				3A9D0257246498490059A0EB /* WinViewController.swift in Sources */,
 				3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */,
 				3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */,
 				865340D32464A60D00F54996 /* HPBar.swift in Sources */,

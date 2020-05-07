@@ -27,6 +27,9 @@ class MainBoardView: UIViewController {
   var tempHealCells: [BoardCell] = []
   var sword: UIImageView?
   var soundPlayer: AVAudioPlayer?
+  
+  let castle0 = CastleCell(frame: .zero, image: UIImage(named: "castle-color"))
+  let castle1 = CastleCell(frame: .zero, image: UIImage(named: "castle-black"))
 
   
   override func viewDidLoad() {
@@ -131,8 +134,8 @@ class MainBoardView: UIViewController {
     
     sword?.isHidden = false
     
-    let endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
-    let endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
+    var endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
+    var endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
 
     UIView.animate(withDuration: 0.5, animations: {
       self.sword!.transform = CGAffineTransform(translationX: endLocationX - self.sword!.center.x, y: endLocationY - self.sword!.center.y)
@@ -158,12 +161,6 @@ class MainBoardView: UIViewController {
         })
       })
     })
-    
-    
-    //sword?.removeFromSuperview()
-    //sleep(1)
-    //sword?.isHidden = true
-
   }
   
   func playAttackAudio(_ unitName: UnitType) {
@@ -356,42 +353,7 @@ class MainBoardView: UIViewController {
         removePiece(atCell: location)
       }
     }
-    
-    /*
-    let player = boardView.checkCellOwner(cellCood: initLocation.coordinates) + 1
-    var currAttackLocation: (Int, Int) = (initLocation.xCoordinate, initLocation.yCoordinate)
-    var increment: Int = -1
-    if (player == 1) {
-      increment = 1
-    }
-    
-    var hitUnit: Bool = false
-    currAttackLocation.1 += increment
-    while ((currAttackLocation.1 >= 0) && (currAttackLocation.1 < (2 * rowsPerPlayer))) {
-      if boardView.cellHasUnit(xCoordinate: currAttackLocation.0, yCoordinate: currAttackLocation.1) {
-        // unit was attacked
-        hitUnit = true
-        let attackedUnitCell = boardView.boardCellArr[currAttackLocation.0][currAttackLocation.1]
-        if (!Settings.friendlyFire) {
-          let attackedPlayer = boardView.checkCellOwner(cellCood: currAttackLocation) + 1
-          if (attackedPlayer == player) {
-            // do nothing right now, maybe bypass the unit?
-          } else {
-            removePiece(atCell: attackedUnitCell)
-          }
-        } else {
-          removePiece(atCell: attackedUnitCell)
-        }
-        break
-      }
-      currAttackLocation.1 += increment
-    }
-    
-    // no unit was in the way, attack the enemy castle
-    if (!hitUnit) {
-      attackCastle(by: player)
-    }
-    */
+  
     turnEnd()
   }
   
@@ -423,11 +385,31 @@ class MainBoardView: UIViewController {
   }
   
   func attackCastle(by player: Int) {
+    var castle = castle0
     if player == 1 {
       player2CastleHp -= 1
+      castle = castle1
     } else {
       player1CastleHp -= 1
+      castle0.backgroundColor = .red
     }
+    
+    UIView.animate(withDuration: 0.25, animations: {
+      castle.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+      castle.backgroundColor = .red
+      self.sword?.isHidden = true
+    }, completion: {
+      _ in
+      UIView.animate(withDuration: 0.25, animations: {
+        castle.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        if (player != 1) {
+          castle.backgroundColor = Settings.player0TerritoryColor
+        } else {
+          castle.backgroundColor = Settings.player1TerritoryColor
+        }
+      })
+    })
+    
     turnEnd()
   }
   
@@ -450,7 +432,7 @@ class MainBoardView: UIViewController {
   }
   
   func createCastleCells(aboveAndBelow boardView: UIView, of height: CGFloat) {
-    let castle0 = CastleCell(frame: .zero, image: UIImage(named: "castle-color"))
+    
     castle0.highlightBorder(with: .black)
     view.addSubview(castle0)
     castle0.translatesAutoresizingMaskIntoConstraints = false
@@ -459,7 +441,7 @@ class MainBoardView: UIViewController {
     castle0.bottomAnchor.constraint(equalTo: boardView.topAnchor).isActive = true
     castle0.heightAnchor.constraint(equalToConstant: height).isActive = true
     
-    let castle1 = CastleCell(frame: .zero, image: UIImage(named: "castle-black"))
+    
     castle1.highlightBorder(with: .black)
     view.addSubview(castle1)
     castle1.translatesAutoresizingMaskIntoConstraints = false

@@ -1,23 +1,22 @@
 {
   "images" : [
     {
+      "filename" : "ninja.png",
       "idiom" : "universal",
-      "filename" : "Cartoon Healer.jpg",
       "scale" : "1x"
     },
     {
+      "filename" : "ninja-1.png",
       "idiom" : "universal",
-      "filename" : "Cartoon Healer-1.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Cartoon Healer-2.jpg",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

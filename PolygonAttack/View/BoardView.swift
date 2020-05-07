@@ -61,7 +61,7 @@ class BoardView: UIView {
     }
     
     func cellHasUnit(xCoordinate: Int, yCoordinate: Int) -> Bool {
-      if (xCoordinate < 0 || yCoordinate < 0 || xCoordinate >= boardCellArr.count || yCoordinate >= boardCellArr.count) {
+      if (xCoordinate < 0 || yCoordinate < 0 || xCoordinate >= boardCellArr.count || yCoordinate >= boardCellArr[0].count) {
         return false
       } else {
         return !(boardCellArr[xCoordinate][yCoordinate].cellUnit == .none)
