@@ -173,7 +173,7 @@ class Blonde: BoardUnit, Attacker, Healer {
   var isMoving: Bool
   var imageIndex: Int = 2
   var moveRadius: Int = 2
-  var health: Int = 2
+  var health: Int = 5
   var owner: Int
   var strength: Int = 1
   var healPower: Int = 1

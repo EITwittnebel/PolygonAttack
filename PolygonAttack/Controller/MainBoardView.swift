@@ -24,6 +24,7 @@ class MainBoardView: UIViewController {
   var playerTurnLabel: UILabel?
   var tempCells: [BoardCell] = []
   var tempHealCells: [BoardCell] = []
+  var sword: UIImageView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,13 +44,19 @@ class MainBoardView: UIViewController {
     for char in player2CharData {
       boardView.boardCellArr[char.xCoord][char.yCoord].drawUnit(index: char.imageIndex)
     }
+    sword = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    sword?.center.x = view.center.x
+    sword?.center.y = 50
+    sword?.image = UIImage(named: "Sword")
+    sword?.isHidden = true
+    view.addSubview(sword!)
   }
   
   func configureLabel() {
     playerTurnLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
     playerTurnLabel!.text = "Player \(playerTurn)'s turn"
     playerTurnLabel!.center.x = view.center.x
-    playerTurnLabel!.center.y = 50
+    playerTurnLabel!.center.y = boardView.boardCellArr[0][0].frame.width
     playerTurnLabel!.textAlignment = .center
     view.addSubview(playerTurnLabel!)
   }
@@ -83,6 +90,8 @@ class MainBoardView: UIViewController {
         if (boardView.checkCellOwner(cellCood: cell.coordinates) == playerTurn - 1) {
           if cell.cellUnit != .none {
             if (cell.backgroundColor == .green && pieceToHeal != nil) {
+              animateAttackFrom(piece: pieceToHeal as! BoardUnit, to: cell)
+              sword?.isHidden = true
               heal(location: cell)
               pieceToHeal = nil
             } else {
@@ -97,6 +106,8 @@ class MainBoardView: UIViewController {
           pieceToMove = nil
         } else {
           if (cell.backgroundColor == .red && pieceToAttack != nil) {
+            animateAttackFrom(piece: pieceToAttack as! BoardUnit, to: cell)
+            //sword?.isHidden = true
             attack(location: cell)
             pieceToAttack = nil
           }
@@ -105,6 +116,35 @@ class MainBoardView: UIViewController {
     }
     clearTempCells()
     clearTempHealCells()
+  }
+  
+  func animateAttackFrom(piece: BoardUnit, to dest: BoardCell) {
+    //print(dest.frame.height)
+    let boardMinX = dest.superview!.frame.minX
+    let boardMinY = dest.superview!.frame.minY
+    
+    let startLocationX = boardMinX + (dest.bounds.width * CGFloat(piece.xCoord)) + (dest.bounds.width/2)
+    let startLocationY = boardMinY + (dest.bounds.width * CGFloat(piece.yCoord)) + (dest.bounds.width/2)
+    
+    UIView.animate(withDuration: 0.001, animations: {self.sword!.transform = CGAffineTransform(translationX: startLocationX - self.sword!.center.x, y: startLocationY - self.sword!.center.y)})
+    
+    sword?.isHidden = false
+    
+    let endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
+    let endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
+    
+   // UIView.animate(withDuration: 0.5, animations: {self.playerTurnLabel!.transform = CGAffineTransform(translationX: startLocationX - self.playerTurnLabel!.center.x, y: startLocationY - self.playerTurnLabel!.center.y)})
+  
+    UIView.animate(withDuration: 1.0, animations: {
+      self.sword!.transform = CGAffineTransform(translationX: endLocationX - self.sword!.center.x, y: endLocationY - self.sword!.center.y)
+     // self.sword?.image = nil
+    })
+    
+    
+    //sword?.removeFromSuperview()
+    //sleep(1)
+    //sword?.isHidden = true
+
   }
   
   func openActionMenu(cell: BoardCell) {

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     do
     {
-        let musicPath = Bundle.main.path(forResource: "bensound-adaytoremember", ofType: "mp3")
+        let musicPath = Bundle.main.path(forResource: "Music&Sound/bensound-adaytoremember", ofType: "mp3")
         try gameBackgroundMusic = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: musicPath!) as URL)
     }
     catch
