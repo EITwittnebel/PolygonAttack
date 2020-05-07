@@ -32,6 +32,16 @@ class ViewController: UIViewController {
         gameBackgroundMusic.play()
         
     }
+    
+    @IBAction func MuteButton(_ sender: Any) {
+        if gameBackgroundMusic.volume != 0.0{
+            gameBackgroundMusic.volume = 0.0
+        }
+        else{
+            gameBackgroundMusic.volume = 1.0
+        }
 
+    }
+    
 }
 
