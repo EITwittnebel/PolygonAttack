@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    var gameBackgroundMusic = AVAudioPlayer()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    do
+    {
+        let musicPath = Bundle.main.path(forResource: "bensound-adaytoremember", ofType: "mp3")
+        try gameBackgroundMusic = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: musicPath!) as URL)
+    }
+    catch
+    {
+        
+    }
+    
   }
+    override func viewWillAppear(_ animated: Bool) {
+        gameBackgroundMusic.play()
+        
+    }
 
 }
 
