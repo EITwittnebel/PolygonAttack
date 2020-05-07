@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainBoardView: UIViewController {
   
@@ -25,6 +26,8 @@ class MainBoardView: UIViewController {
   var tempCells: [BoardCell] = []
   var tempHealCells: [BoardCell] = []
   var sword: UIImageView?
+  var soundPlayer: AVAudioPlayer?
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,7 +94,6 @@ class MainBoardView: UIViewController {
         if (boardView.checkCellOwner(cellCood: cell.coordinates) == playerTurn - 1) {
           if cell.cellUnit != .none {
             if (cell.backgroundColor == .green && pieceToHeal != nil) {
-              sword?.isHidden = true
               heal(location: cell)
               pieceToHeal = nil
             } else {
@@ -106,8 +108,8 @@ class MainBoardView: UIViewController {
           pieceToMove = nil
         } else {
           if (cell.backgroundColor == .red && pieceToAttack != nil) {
+            playAttackAudio((pieceToAttack as! BoardUnit).name)
             animateAttackFrom(piece: pieceToAttack as! BoardUnit, to: cell)
-            //sword?.isHidden = true
             attack(location: cell)
             pieceToAttack = nil
           }
@@ -119,7 +121,7 @@ class MainBoardView: UIViewController {
   }
   
   func animateAttackFrom(piece: BoardUnit, to dest: BoardCell) {
-    //print(dest.frame.height)
+    
     let boardMinX = dest.superview!.frame.minX
     let boardMinY = dest.superview!.frame.minY
     
@@ -132,13 +134,9 @@ class MainBoardView: UIViewController {
     
     let endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
     let endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
-    
-   // UIView.animate(withDuration: 0.5, animations: {self.playerTurnLabel!.transform = CGAffineTransform(translationX: startLocationX - self.playerTurnLabel!.center.x, y: startLocationY - self.playerTurnLabel!.center.y)})
-  
+
     UIView.animate(withDuration: 0.5, animations: {
       self.sword!.transform = CGAffineTransform(translationX: endLocationX - self.sword!.center.x, y: endLocationY - self.sword!.center.y)
-     // self.sword?.image = ni
-      
     }, completion: {
       _ in
       UIView.animate(withDuration: 0.25, animations: {
@@ -165,6 +163,30 @@ class MainBoardView: UIViewController {
     //sleep(1)
     //sword?.isHidden = true
 
+  }
+  
+  func playAttackAudio(_ unitName: UnitType) {
+    do
+    {
+      var path = Bundle.main.path(forResource: "Music&Sound/knightAttack.wav", ofType:nil)!
+      switch unitName {
+      case .baby:
+        path = Bundle.main.path(forResource: "Music&Sound/knightAttack.wav", ofType:nil)!
+      case .blonde:
+        path = Bundle.main.path(forResource: "Music&Sound/magicAttack.mp3", ofType:nil)!
+      case .ninja:
+        path = Bundle.main.path(forResource: "Music&Sound/rogueAttack.mp3", ofType:nil)!
+      case .none:
+        path = Bundle.main.path(forResource: "Music&Sound/knightAttack.wav", ofType:nil)!
+      }
+      let url = URL(fileURLWithPath: path)
+      
+      do {
+        soundPlayer = try AVAudioPlayer(contentsOf: url)
+        soundPlayer?.play()
+      } catch {}
+    }
+    catch {}
   }
   
   func openActionMenu(cell: BoardCell) {
