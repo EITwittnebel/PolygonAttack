@@ -302,8 +302,10 @@ class MainBoardView: UIViewController {
     let defenderInfo = findIndexOfPieceAtCell(atCell: location)
     if defenderInfo.0 == 1 {
       player1CharData[defenderInfo.1].health += pieceToHeal!.healPower
+        location.hpBar.updateStatus(status: (player1CharData[defenderInfo.1].health, player1CharData[defenderInfo.1].maxHealth))
     } else {
       player2CharData[defenderInfo.1].health += pieceToHeal!.healPower
+        location.hpBar.updateStatus(status: (player2CharData[defenderInfo.1].health, player2CharData[defenderInfo.1].maxHealth))
     }
     turnEnd()
   }
@@ -344,11 +346,13 @@ class MainBoardView: UIViewController {
     let defenderInfo = findIndexOfPieceAtCell(atCell: location)
     if defenderInfo.0 == 1 {
       player1CharData[defenderInfo.1].takeDamage(amount: pieceToAttack!.strength)
+        location.hpBar.updateStatus(status: (player1CharData[defenderInfo.1].health, player1CharData[defenderInfo.1].maxHealth))
       if (player1CharData[defenderInfo.1].health <= 0) {
         removePiece(atCell: location)
       }
     } else {
       player2CharData[defenderInfo.1].takeDamage(amount: pieceToAttack!.strength)
+        location.hpBar.updateStatus(status: (player2CharData[defenderInfo.1].health, player2CharData[defenderInfo.1].maxHealth))
       if (player2CharData[defenderInfo.1].health <= 0) {
         removePiece(atCell: location)
       }
@@ -435,15 +439,16 @@ class MainBoardView: UIViewController {
     
     castle0.highlightBorder(with: .black)
     view.addSubview(castle0)
+    castle0.backgroundColor = Settings.player0TerritoryColor
     castle0.translatesAutoresizingMaskIntoConstraints = false
     castle0.leadingAnchor.constraint(equalTo: boardView.leadingAnchor).isActive = true
     castle0.trailingAnchor.constraint(equalTo: boardView.trailingAnchor).isActive = true
     castle0.bottomAnchor.constraint(equalTo: boardView.topAnchor).isActive = true
     castle0.heightAnchor.constraint(equalToConstant: height).isActive = true
     
-    
     castle1.highlightBorder(with: .black)
     view.addSubview(castle1)
+    castle1.backgroundColor = Settings.player1TerritoryColor
     castle1.translatesAutoresizingMaskIntoConstraints = false
     castle1.trailingAnchor.constraint(equalTo: boardView.trailingAnchor).isActive = true
     castle1.leadingAnchor.constraint(equalTo: boardView.leadingAnchor).isActive = true

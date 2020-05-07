@@ -22,6 +22,7 @@ protocol BoardUnit {
   var isMoving: Bool { get set }
   var moveRadius: Int { get }
   var health: Int { get set }
+  var maxHealth: Int { get }
   var owner: Int { get }
   
   mutating func moveTo(cell: BoardCell)
@@ -41,6 +42,8 @@ extension BoardUnit {
     yCoord = cell.yCoordinate
     cell.cellUnit = name
     cell.drawUnit(index: imageIndex)
+    cell.hpBar.updateStatus(status: (health, maxHealth))
+    cell.hpBar.isHidden = false
   }
 }
 
@@ -67,6 +70,7 @@ class Ninja: BoardUnit, Attacker {
   var imageIndex: Int = 0
   var moveRadius: Int = -1
   var health: Int = 2
+  let maxHealth: Int = 2
   var owner: Int
   var strength: Int = 1
   var canAttackCastle = false
@@ -131,6 +135,7 @@ class Baby: BoardUnit, Attacker {
   var imageIndex: Int = 1
   var moveRadius: Int = 2
   var health: Int = 3
+  let maxHealth: Int = 3
   var owner: Int
   var strength: Int = 1
   
@@ -178,6 +183,7 @@ class Blonde: BoardUnit, Attacker, Healer {
   var imageIndex: Int = 2
   var moveRadius: Int = 2
   var health: Int = 2
+  let maxHealth: Int = 2
   var owner: Int
   var strength: Int = 1
   var healPower: Int = 1

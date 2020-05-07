@@ -51,6 +51,7 @@ class BoardSetupViewController: UIViewController {
         castle0 = CastleCell(frame: .zero, image: UIImage(named: "castle-color"))
         castle0.highlightBorder(with: .black)
         view.addSubview(castle0)
+        castle0.backgroundColor = Settings.player0TerritoryColor
         castle0.translatesAutoresizingMaskIntoConstraints = false
         castle0.leadingAnchor.constraint(equalTo: boardView.leadingAnchor).isActive = true
         castle0.trailingAnchor.constraint(equalTo: boardView.trailingAnchor).isActive = true
@@ -60,6 +61,7 @@ class BoardSetupViewController: UIViewController {
         castle1 = CastleCell(frame: .zero, image: UIImage(named: "castle-black"))
         castle1.highlightBorder(with: .black)
         view.addSubview(castle1)
+        castle1.backgroundColor = Settings.player1TerritoryColor
         castle1.translatesAutoresizingMaskIntoConstraints = false
         castle1.trailingAnchor.constraint(equalTo: boardView.trailingAnchor).isActive = true
         castle1.leadingAnchor.constraint(equalTo: boardView.leadingAnchor).isActive = true

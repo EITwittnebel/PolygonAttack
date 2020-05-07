@@ -20,8 +20,11 @@ class HPBar: UIView {
     
     @IBInspectable var level: CGFloat = 0.5 {
         didSet {
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
             levelLayer.strokeEnd = level
-            if level < 0.5 {
+            CATransaction.commit()
+            if level <= 0.5 {
                 levelLayer.strokeColor = UIColor.red.cgColor
             } else {
                 levelLayer.strokeColor = UIColor.green.cgColor
@@ -29,9 +32,21 @@ class HPBar: UIView {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var curHP: Int = 1
+    var maxHP: Int = 2
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        setup()
+//    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func prepareForInterfaceBuilder() {
@@ -39,7 +54,19 @@ class HPBar: UIView {
         setup()
     }
     
-    private func setup() {
+    func updateStatus(status: (Int, Int)) {
+        curHP = status.0
+        maxHP = status.1
+        var temp = CGFloat(curHP) / CGFloat(maxHP)
+        temp = max(0, min(1.0, CGFloat(curHP) / CGFloat(maxHP)))
+        level = temp
+    }
+    
+    func reportStatus() -> (Int, Int) {
+        return (curHP, maxHP)
+    }
+    
+    func setup() {
         layer.addSublayer(barLayer)
         layer.addSublayer(levelLayer)
         let width = bounds.width - lineWidth
@@ -48,7 +75,7 @@ class HPBar: UIView {
         path.move(to: CGPoint(x: 0, y: height / 2))
         path.addLine(to: CGPoint(x: width, y: height / 2))
         barLayer.path = path.cgPath
-        barLayer.strokeColor = UIColor.lightGray.cgColor
+        barLayer.strokeColor = UIColor.black.cgColor
         barLayer.lineWidth = lineWidth
         barLayer.position.x = lineWidth / 2
         barLayer.position.y = lineWidth / 2
@@ -58,7 +85,7 @@ class HPBar: UIView {
         maskLayer.lineCap = barLayer.lineCap
         maskLayer.position = barLayer.position
         maskLayer.strokeColor = barLayer.strokeColor
-        maskLayer.lineWidth = barLayer.lineWidth - 8
+        maskLayer.lineWidth = barLayer.lineWidth - 2
         maskLayer.fillColor = nil
         
         buildLevelLayer()

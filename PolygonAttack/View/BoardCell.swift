@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoardCell: UIImageView {
+class BoardCell: UIView {
     
     let xCoordinate: Int
     let yCoordinate: Int
@@ -17,12 +17,27 @@ class BoardCell: UIImageView {
     }
     
     var cellUnit: UnitType = .none
+    
+    var imageView: UIImageView
+    var image: UIImage? {
+        didSet {
+            self.imageView.image = image
+        }
+    }
+    var hpBar: HPBar
 
     init(frame: CGRect, xCoodInBoard xCood: Int, yCoodInBoard yCood: Int) {
         xCoordinate = xCood
         yCoordinate = yCood
+        imageView = UIImageView(frame: CGRect(origin: .zero, size: frame.size))
+        hpBar = HPBar.init(frame: CGRect(x: 2, y: frame.height - 8, width: frame.width - 4, height: 6))
         super.init(frame: frame)
         self.isUserInteractionEnabled = true
+        
+        self.addSubview(imageView)
+        self.addSubview(hpBar)
+        self.bringSubviewToFront(hpBar)
+        hpBar.isHidden = true
     }
     
     required init?(coder: NSCoder) {
@@ -48,21 +63,29 @@ class BoardCell: UIImageView {
         case 0:
             self.image = UIImage(named: "ninja")
             self.cellUnit = .ninja
+            hpBar.updateStatus(status: (Ninja.init(Posx: 0, Posy: 0).health, Ninja.init(Posx: 0, Posy: 0).health))
+            hpBar.isHidden = false
         case 1:
             self.image = UIImage(named: "baby")
             self.cellUnit = .baby
+            hpBar.updateStatus(status: (Baby.init(Posx: 0, Posy: 0).health, Baby.init(Posx: 0, Posy: 0).health))
+            hpBar.isHidden = false
         case 2:
             self.image = UIImage(named: "blonde_girl")
             self.cellUnit = .blonde
+            hpBar.updateStatus(status: (Blonde.init(Posx: 0, Posy: 0).health, Blonde.init(Posx: 0, Posy: 0).health))
+            hpBar.isHidden = false
         default:
             self.image = nil
             self.cellUnit = .none
+            hpBar.isHidden = true
         }
     }
   
     func removePiece() {
         self.image = nil
         self.cellUnit = .none
+        self.hpBar.isHidden = true
     }
   
     func reverseIndex(unit: UnitType) -> Int {
