@@ -73,7 +73,7 @@ class BoardSetupCell: UIImageView {
 extension BoardSetupCell {
     func clickAnimate() {
         self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-        self.alpha = 0.0
+        self.alpha = 0.9
         UIView.animate(withDuration: 0.25) {
             self.alpha = 1.0
             self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
