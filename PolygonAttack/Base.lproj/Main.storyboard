@@ -130,9 +130,6 @@
                                                 <rect key="frame" x="193" y="0.0" width="181" height="34"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <state key="normal" title="Register"/>
-                                                <connections>
-                                                    <segue destination="jhz-fR-Xux" kind="presentation" modalPresentationStyle="fullScreen" id="Sij-L1-Eb7"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -173,9 +170,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainMenuBackground" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-4g-EII">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainMenuBackground" translatesAutoresizingMaskIntoConstraints="NO" id="u8Z-4g-EII">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polygon Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHM-UM-SeT">
                                 <rect key="frame" x="20" y="199" width="374" height="300"/>
@@ -215,7 +211,11 @@
                         <constraints>
                             <constraint firstItem="Ivy-dO-dde" firstAttribute="trailing" secondItem="Wyi-hD-WTj" secondAttribute="trailing" constant="20" id="1dp-32-dXa"/>
                             <constraint firstItem="Ivy-dO-dde" firstAttribute="trailing" secondItem="dHM-UM-SeT" secondAttribute="trailing" constant="20" id="3Hp-lb-WUo"/>
+                            <constraint firstItem="u8Z-4g-EII" firstAttribute="leading" secondItem="Ivy-dO-dde" secondAttribute="leading" id="51X-gB-aAX"/>
+                            <constraint firstItem="u8Z-4g-EII" firstAttribute="top" secondItem="nwK-PF-yvK" secondAttribute="top" id="7x6-v2-bpi"/>
+                            <constraint firstItem="u8Z-4g-EII" firstAttribute="trailing" secondItem="Ivy-dO-dde" secondAttribute="trailing" id="B1H-Df-QxJ"/>
                             <constraint firstItem="dHM-UM-SeT" firstAttribute="top" secondItem="Ivy-dO-dde" secondAttribute="top" constant="155" id="XzK-y4-a15"/>
+                            <constraint firstAttribute="bottom" secondItem="u8Z-4g-EII" secondAttribute="bottom" id="bAD-hP-NEc"/>
                             <constraint firstItem="Wyi-hD-WTj" firstAttribute="leading" secondItem="Ivy-dO-dde" secondAttribute="leading" constant="20" id="cDP-Yh-GJx"/>
                             <constraint firstItem="dHM-UM-SeT" firstAttribute="leading" secondItem="Ivy-dO-dde" secondAttribute="leading" constant="20" id="ivD-Yl-bNQ"/>
                             <constraint firstItem="Ivy-dO-dde" firstAttribute="bottom" secondItem="Wyi-hD-WTj" secondAttribute="bottom" priority="250" constant="200" id="mNh-Jz-iAj"/>
@@ -338,6 +338,9 @@
                                                 <rect key="frame" x="193" y="0.0" width="181" height="34"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <state key="normal" title="Create Account"/>
+                                                <connections>
+                                                    <segue destination="jhz-fR-Xux" kind="presentation" modalPresentationStyle="fullScreen" id="Aa3-rm-t7h"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
