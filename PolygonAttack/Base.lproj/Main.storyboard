@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PY7-oC-Z6x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PY7-oC-Z6x">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -237,7 +237,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wyi-hD-WTj">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wyi-hD-WTj">
                                 <rect key="frame" x="20" y="539" width="374" height="116"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngz-Pu-2oB">
@@ -281,7 +281,7 @@
                             <constraint firstItem="dHM-UM-SeT" firstAttribute="top" secondItem="Ivy-dO-dde" secondAttribute="top" constant="155" id="XzK-y4-a15"/>
                             <constraint firstAttribute="bottom" secondItem="u8Z-4g-EII" secondAttribute="bottom" id="bAD-hP-NEc"/>
                             <constraint firstItem="Wyi-hD-WTj" firstAttribute="leading" secondItem="Ivy-dO-dde" secondAttribute="leading" constant="20" id="cDP-Yh-GJx"/>
-                            <constraint firstItem="9HX-qb-aZv" firstAttribute="top" secondItem="Wyi-hD-WTj" secondAttribute="bottom" constant="181" id="dh4-wG-U22"/>
+                            <constraint firstItem="9HX-qb-aZv" firstAttribute="top" secondItem="Wyi-hD-WTj" secondAttribute="bottom" priority="250" constant="181" id="dh4-wG-U22"/>
                             <constraint firstItem="Ivy-dO-dde" firstAttribute="trailing" secondItem="9HX-qb-aZv" secondAttribute="trailing" constant="33" id="ih3-QS-ObA"/>
                             <constraint firstItem="dHM-UM-SeT" firstAttribute="leading" secondItem="Ivy-dO-dde" secondAttribute="leading" constant="20" id="ivD-Yl-bNQ"/>
                             <constraint firstItem="9HX-qb-aZv" firstAttribute="leading" secondItem="Ivy-dO-dde" secondAttribute="leading" constant="362" id="mNK-5H-QfD"/>
@@ -542,6 +542,6 @@
     <resources>
         <image name="Grass" width="1632" height="1224"/>
         <image name="MainMenuBackground" width="500" height="395"/>
-        <image name="speaker.fill" catalog="system" width="64" height="60"/>
+        <image name="speaker.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
