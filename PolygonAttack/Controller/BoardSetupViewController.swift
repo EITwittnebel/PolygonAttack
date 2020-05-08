@@ -70,10 +70,11 @@ class BoardSetupViewController: UIViewController {
         
         gameBeginBtun = UIButton()
         gameBeginBtun.setTitle("Begin Game", for: .normal)
-        gameBeginBtun.setTitleColor(.link, for: .normal)
+        gameBeginBtun.setTitleColor(.black, for: .normal)
+        gameBeginBtun.backgroundColor = .link
         gameBeginBtun.layer.borderWidth = 1.0
         gameBeginBtun.layer.cornerRadius = 5.0
-        gameBeginBtun.layer.borderColor = UIColor.link.cgColor
+        gameBeginBtun.layer.borderColor = UIColor.black.cgColor
         gameBeginBtun.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
         gameBeginBtun.addTarget(self, action: #selector(beginGameBtnClicked(_:)), for: .touchUpInside)
         view.addSubview(gameBeginBtun)
