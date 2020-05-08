@@ -120,6 +120,8 @@ class Ninja: BoardUnit, Attacker {
       }
       if ((currAttackLocation.0 >= 0) && (currAttackLocation.0 < Settings.boardXPieces)) {
         canAttackCastle = true
+      } else {
+        canAttackCastle = false
       }
       horIncrement *= -1
     }
