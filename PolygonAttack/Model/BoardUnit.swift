@@ -130,7 +130,7 @@ class Ninja: BoardUnit, Attacker {
   }
   
   func takeDamage(amount: Int) {
-    health -= amount
+    health -= min(amount, maxHealth)
   }
 }
 
@@ -178,7 +178,7 @@ class Baby: BoardUnit, Attacker {
   }
   
   func takeDamage(amount: Int) {
-    health -= amount
+    health -= min(amount, maxHealth)
   }
 }
 
@@ -255,6 +255,6 @@ class Blonde: BoardUnit, Attacker, Healer {
   }
   
   func takeDamage(amount: Int) {
-    health -= amount
+    health -= min(amount, maxHealth)
   }
 }
