@@ -29,14 +29,20 @@ class BoardSetupViewController: UIViewController {
     func configureView() {
         // TODO: These two checks should be done in the game's Settings screen
         guard Settings.boardYPieces % 2 == 0 else { fatalError("Should have an even number of vertical pieces") }
-        let boardProportion = CGFloat(Settings.boardYPieces + 2) / CGFloat(Settings.boardXPieces)
-        let viewProportion = view.frame.height / view.frame.width
-        //guard boardProportion < viewProportion else { fatalError("Board is too long") }
         
-        let sideMargin = Settings.boardSideMargin
-        let boardWidth = view.frame.width - sideMargin * 2
+        let boardProportion = CGFloat(Settings.boardYPieces + 4) / CGFloat(Settings.boardXPieces)
+        let viewProportion = view.frame.height / view.frame.width
+        
+        let boardWidth: CGFloat
+        let boardHeight: CGFloat
+        if boardProportion < viewProportion {
+            boardWidth = view.frame.width - Settings.boardSideMargin * 2
+            boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
+        } else {
+            boardHeight = view.frame.height / CGFloat(Settings.boardYPieces + 4) * CGFloat(Settings.boardYPieces)
+            boardWidth = boardHeight / CGFloat(Settings.boardYPieces) * CGFloat(Settings.boardXPieces)
+        }
         boardCellWidth = boardWidth / CGFloat(Settings.boardXPieces)
-        let boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
         
         boardView = BoardSetupView(frame: CGRect(x: 0, y: 0, width: boardWidth, height: boardHeight))
         boardView.preGameVC = self
