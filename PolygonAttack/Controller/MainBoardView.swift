@@ -26,6 +26,7 @@ class MainBoardView: UIViewController {
   var tempCells: [BoardCell] = []
   var tempHealCells: [BoardCell] = []
   var sword: UIImageView?
+  var healImage: UIImageView?
   var soundPlayer: AVAudioPlayer?
   
   let castle0 = CastleCell(frame: .zero, image: UIImage(named: "castle-color"))
@@ -57,21 +58,39 @@ class MainBoardView: UIViewController {
     sword?.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0)
     sword?.isHidden = true
     view.addSubview(sword!)
+    
+    healImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    healImage?.center.x = view.center.x
+    healImage?.center.y = 50
+    healImage?.image = UIImage(named: "heal")
+    healImage?.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0)
+    healImage?.isHidden = true
+    view.addSubview(healImage!)
   }
   
   func configureLabel() {
     playerTurnLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
     playerTurnLabel!.text = "Player \(playerTurn)'s turn"
     playerTurnLabel!.center.x = view.center.x
-    playerTurnLabel!.center.y = boardView.boardCellArr[0][0].frame.width
+    playerTurnLabel!.center.y = boardView.boardCellArr[0][0].frame.width - 5
     playerTurnLabel!.textAlignment = .center
     view.addSubview(playerTurnLabel!)
   }
   
   func configureBoard() {
-    let sideMargin = Settings.boardSideMargin
-    let boardWidth = view.frame.width - sideMargin * 2
-    let boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
+    let boardProportion = CGFloat(Settings.boardYPieces + 4) / CGFloat(Settings.boardXPieces)
+    let viewProportion = view.frame.height / view.frame.width
+    
+    let boardWidth: CGFloat
+    let boardHeight: CGFloat
+    if boardProportion < viewProportion {
+        boardWidth = view.frame.width - Settings.boardSideMargin * 2
+        boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
+    } else {
+        boardHeight = view.frame.height / CGFloat(Settings.boardYPieces + 4) * CGFloat(Settings.boardYPieces)
+        boardWidth = boardHeight / CGFloat(Settings.boardYPieces) * CGFloat(Settings.boardXPieces)
+    }
+    
     boardView = BoardView(frame: CGRect(x: 0, y: 0, width: boardWidth, height: boardHeight))
     view.addSubview(boardView)
     boardView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,8 +116,9 @@ class MainBoardView: UIViewController {
         if (boardView.checkCellOwner(cellCood: cell.coordinates) == playerTurn - 1) {
           if cell.cellUnit != .none {
             if (cell.backgroundColor == .green && pieceToHeal != nil) {
-              heal(location: cell)
-              pieceToHeal = nil
+              animateHealingFrom(piece: pieceToHeal as! BoardUnit, to: cell)
+              //heal(location: cell)
+              //pieceToHeal = nil
             } else {
               openActionMenu(cell: cell)
             }
@@ -122,6 +142,47 @@ class MainBoardView: UIViewController {
     clearTempHealCells()
   }
   
+  func animateHealingFrom(piece: BoardUnit, to dest: BoardCell) {
+    
+    let boardMinX = dest.superview!.frame.minX
+    let boardMinY = dest.superview!.frame.minY
+    
+    let startLocationX = boardMinX + (dest.bounds.width * CGFloat(piece.xCoord)) + (dest.bounds.width/2)
+    let startLocationY = boardMinY + (dest.bounds.width * CGFloat(piece.yCoord)) + (dest.bounds.width/2)
+    
+    UIView.animate(withDuration: 0.001, animations: {self.healImage!.transform = CGAffineTransform(translationX: startLocationX - self.healImage!.center.x, y: startLocationY - self.healImage!.center.y)}, completion: nil)
+    
+    healImage?.isHidden = false
+    
+    var endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
+    var endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
+
+    UIView.animate(withDuration: 0.5, animations: {
+      self.healImage!.transform = CGAffineTransform(translationX: endLocationX - self.healImage!.center.x, y: endLocationY - self.healImage!.center.y)
+    }, completion: {
+      _ in
+      UIView.animate(withDuration: 0.25, animations: {
+        dest.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        dest.backgroundColor = .green
+        self.healImage?.isHidden = true
+      }, completion: {
+        _ in
+        UIView.animate(withDuration: 0.25, animations: {
+          dest.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+          if (self.boardView.checkCellOwner(cellCood: dest.coordinates) == 0) {
+            dest.backgroundColor = Settings.player0TerritoryColor
+          } else {
+            dest.backgroundColor = Settings.player1TerritoryColor
+          }
+        }, completion: {
+          _ in
+          self.heal(location: dest)
+          self.pieceToHeal = nil
+        })
+      })
+    })
+  }
+  
   func animateAttackFrom(piece: BoardUnit, to dest: BoardCell) {
     
     let boardMinX = dest.superview!.frame.minX
@@ -134,8 +195,8 @@ class MainBoardView: UIViewController {
     
     sword?.isHidden = false
     
-    var endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
-    var endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
+    let endLocationX = boardMinX + (dest.bounds.width * CGFloat(dest.coordinates.0)) + (dest.bounds.width/2)
+    let endLocationY = boardMinY + (dest.bounds.width * CGFloat(dest.coordinates.1)) + (dest.bounds.width/2)
 
     UIView.animate(withDuration: 0.5, animations: {
       self.sword!.transform = CGAffineTransform(translationX: endLocationX - self.sword!.center.x, y: endLocationY - self.sword!.center.y)
@@ -184,7 +245,6 @@ class MainBoardView: UIViewController {
         soundPlayer?.play()
       } catch {}
     }
-    catch {}
   }
   
   func openActionMenu(cell: BoardCell) {

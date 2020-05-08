@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum UnitStats {
+    static let Ninja = (-1, 2, 1)
+    static let Baby = (2, 3, 1)
+    static let Blonde = (2, 2, 1, 1)
+}
 
 protocol Attacker {
   var strength: Int { get set }
@@ -68,11 +73,11 @@ class Ninja: BoardUnit, Attacker {
   var yCoord: Int
   var isMoving: Bool
   var imageIndex: Int = 0
-  var moveRadius: Int = -1
-  var health: Int = 2
-  let maxHealth: Int = 2
+    var moveRadius: Int = UnitStats.Ninja.0
+  var health: Int = UnitStats.Ninja.1
+  let maxHealth: Int = UnitStats.Ninja.1
   var owner: Int
-  var strength: Int = 1
+  var strength: Int = UnitStats.Ninja.2
   var canAttackCastle = false
   
   init(Posx: Int, Posy: Int) {
@@ -115,6 +120,8 @@ class Ninja: BoardUnit, Attacker {
       }
       if ((currAttackLocation.0 >= 0) && (currAttackLocation.0 < Settings.boardXPieces)) {
         canAttackCastle = true
+      } else {
+        canAttackCastle = false
       }
       horIncrement *= -1
     }
@@ -133,11 +140,11 @@ class Baby: BoardUnit, Attacker {
   var yCoord: Int
   var isMoving: Bool
   var imageIndex: Int = 1
-  var moveRadius: Int = 2
-  var health: Int = 3
-  let maxHealth: Int = 3
+    var moveRadius: Int = UnitStats.Baby.0
+  var health: Int =  UnitStats.Baby.1
+  let maxHealth: Int =  UnitStats.Baby.1
   var owner: Int
-  var strength: Int = 1
+  var strength: Int =  UnitStats.Baby.2
   
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
@@ -181,12 +188,12 @@ class Blonde: BoardUnit, Attacker, Healer {
   var yCoord: Int
   var isMoving: Bool
   var imageIndex: Int = 2
-  var moveRadius: Int = 2
-  var health: Int = 2
-  let maxHealth: Int = 2
+    var moveRadius: Int =  UnitStats.Blonde.0
+  var health: Int = UnitStats.Blonde.1
+  let maxHealth: Int = UnitStats.Blonde.1
   var owner: Int
-  var strength: Int = 1
-  var healPower: Int = 1
+  var strength: Int = UnitStats.Blonde.2
+    var healPower: Int = UnitStats.Blonde.3
 
   init(Posx: Int, Posy: Int) {
     xCoord = Posx
