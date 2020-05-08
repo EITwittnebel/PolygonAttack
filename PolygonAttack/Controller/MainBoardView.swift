@@ -72,7 +72,7 @@ class MainBoardView: UIViewController {
     playerTurnLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
     playerTurnLabel!.text = "Player \(playerTurn)'s turn"
     playerTurnLabel!.center.x = view.center.x
-    playerTurnLabel!.center.y = boardView.boardCellArr[0][0].frame.width
+    playerTurnLabel!.center.y = boardView.boardCellArr[0][0].frame.width - 5
     playerTurnLabel!.textAlignment = .center
     view.addSubview(playerTurnLabel!)
   }
