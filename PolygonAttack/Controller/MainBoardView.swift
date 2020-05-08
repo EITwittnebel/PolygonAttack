@@ -17,8 +17,8 @@ class MainBoardView: UIViewController {
   var player2CharData: [BoardUnit] = []
   var boardView: BoardView!
   var playerTurn: Int = 1
-  var player1CastleHp: Int = 2
-  var player2CastleHp: Int = 2
+  var player1CastleHp: Int = 3
+  var player2CastleHp: Int = 3
   var pieceToMove: BoardUnit?
   var pieceToHeal: Healer?
   var pieceToAttack: Attacker?
