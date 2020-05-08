@@ -103,6 +103,7 @@ class Ninja: BoardUnit, Attacker {
       vertIncrement = 1
     }
     
+    var castable: Bool = false
     // One loop for each diagonal to look at
     for _ in 0...1 {
       currAttackLocation = initAttackLocation
@@ -118,10 +119,13 @@ class Ninja: BoardUnit, Attacker {
         currAttackLocation.1 += vertIncrement
         currAttackLocation.0 += horIncrement
       }
-      if ((currAttackLocation.0 >= 0) && (currAttackLocation.0 < Settings.boardXPieces)) {
-        canAttackCastle = true
-      } else {
-        canAttackCastle = false
+      if (!castable) {
+        if ((currAttackLocation.0 >= 0) && (currAttackLocation.0 < Settings.boardXPieces)) {
+          canAttackCastle = true
+          castable = true
+        } else {
+          canAttackCastle = false
+        }
       }
       horIncrement *= -1
     }
