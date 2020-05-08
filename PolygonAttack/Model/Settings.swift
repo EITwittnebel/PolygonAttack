@@ -22,4 +22,6 @@ enum Settings {
   
     static let friendlyFire: Bool = false
     static let sound: Bool = true
+    
+    static var userName: String = "untitled"
 }

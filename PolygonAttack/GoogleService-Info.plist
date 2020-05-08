@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>381770773915-6aplp3168gcv0f2fifgk1jij7f64a5po.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.381770773915-6aplp3168gcv0f2fifgk1jij7f64a5po</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDZReh8-ikWP_tBYc1HACg8vstLc8mX-HA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>381770773915</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.enhanceit.polygonAttack</string>
+	<key>PROJECT_ID</key>
+	<string>polygonattack</string>
+	<key>STORAGE_BUCKET</key>
+	<string>polygonattack.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:381770773915:ios:047d5e080d36a048379d3e</string>
+	<key>DATABASE_URL</key>
+	<string>https://polygonattack.firebaseio.com</string>
+</dict>
+</plist>

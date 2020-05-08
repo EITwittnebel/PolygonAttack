@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		3AD3B93D2434FE1B009E8590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B93B2434FE1B009E8590 /* Main.storyboard */; };
 		3AD3B93F2434FE1D009E8590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B93E2434FE1D009E8590 /* Assets.xcassets */; };
 		3AD3B9422434FE1D009E8590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */; };
+		7ED6F7EE3A708B15BF22631C /* Pods_PolygonAttack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E95F70656B776A65D0A76CF /* Pods_PolygonAttack.framework */; };
 		865340D32464A60D00F54996 /* HPBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865340D22464A60D00F54996 /* HPBar.swift */; };
 		86A3EE24245F729900D04B06 /* BoardSetupUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE23245F729900D04B06 /* BoardSetupUnit.swift */; };
 		86A3EE28245F72AD00D04B06 /* CastleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE25245F72AD00D04B06 /* CastleCell.swift */; };
@@ -30,6 +31,8 @@
 		86A3EE2A245F72AD00D04B06 /* BoardSetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */; };
 		86A3EE2D245F72B900D04B06 /* BoardSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */; };
 		86A3EE2E245F72B900D04B06 /* UnitSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */; };
+		86FFB2D82465269A009FD672 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86FFB2D72465269A009FD672 /* GoogleService-Info.plist */; };
+		86FFB2DC2465323E009FD672 /* LeaderboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFB2DB2465323E009FD672 /* LeaderboardTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,8 @@
 		3AD3B93E2434FE1D009E8590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AD3B9412434FE1D009E8590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AD3B9432434FE1D009E8590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E95F70656B776A65D0A76CF /* Pods_PolygonAttack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolygonAttack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5662BC9F225C7783C6079442 /* Pods-PolygonAttack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolygonAttack.release.xcconfig"; path = "Target Support Files/Pods-PolygonAttack/Pods-PolygonAttack.release.xcconfig"; sourceTree = "<group>"; };
 		865340D22464A60D00F54996 /* HPBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPBar.swift; sourceTree = "<group>"; };
 		86A3EE23245F729900D04B06 /* BoardSetupUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupUnit.swift; sourceTree = "<group>"; };
 		86A3EE25245F72AD00D04B06 /* CastleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleCell.swift; sourceTree = "<group>"; };
@@ -58,6 +63,9 @@
 		86A3EE27245F72AD00D04B06 /* BoardSetupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupCell.swift; sourceTree = "<group>"; };
 		86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSetupViewController.swift; sourceTree = "<group>"; };
 		86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSelectionViewController.swift; sourceTree = "<group>"; };
+		86FFB2D72465269A009FD672 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		86FFB2DB2465323E009FD672 /* LeaderboardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewController.swift; sourceTree = "<group>"; };
+		94D4DB0E5BADB94F1D2842E6 /* Pods-PolygonAttack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolygonAttack.debug.xcconfig"; path = "Target Support Files/Pods-PolygonAttack/Pods-PolygonAttack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,17 +73,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED6F7EE3A708B15BF22631C /* Pods_PolygonAttack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1467E5E8519B9BB9C6D07656 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E95F70656B776A65D0A76CF /* Pods_PolygonAttack.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3AD3B9292434FE1A009E8590 = {
 			isa = PBXGroup;
 			children = (
 				3AD3B9342434FE1B009E8590 /* PolygonAttack */,
 				3AD3B9332434FE1B009E8590 /* Products */,
+				479D21E570537FAF22564833 /* Pods */,
+				1467E5E8519B9BB9C6D07656 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,9 +119,19 @@
 				3AD3B93E2434FE1D009E8590 /* Assets.xcassets */,
 				3AD3B9402434FE1D009E8590 /* LaunchScreen.storyboard */,
 				3AD3B9432434FE1D009E8590 /* Info.plist */,
+				86FFB2D72465269A009FD672 /* GoogleService-Info.plist */,
 				3ABF0210245E120C0031666B /* LoginDetails.xcdatamodeld */,
 			);
 			path = PolygonAttack;
+			sourceTree = "<group>";
+		};
+		479D21E570537FAF22564833 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94D4DB0E5BADB94F1D2842E6 /* Pods-PolygonAttack.debug.xcconfig */,
+				5662BC9F225C7783C6079442 /* Pods-PolygonAttack.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		86A3EE20245F726800D04B06 /* Controller */ = {
@@ -112,6 +141,7 @@
 				3AD3B9392434FE1B009E8590 /* ViewController.swift */,
 				86A3EE2B245F72B800D04B06 /* BoardSetupViewController.swift */,
 				86A3EE2C245F72B800D04B06 /* UnitSelectionViewController.swift */,
+				86FFB2DB2465323E009FD672 /* LeaderboardTableViewController.swift */,
 				3A35503C2435327200BE01C2 /* MainBoardView.swift */,
 				3ABF020C245E0AA80031666B /* LoginViewController.swift */,
 				3ABF020E245E10300031666B /* AcRegisterViewController.swift */,
@@ -149,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AD3B9462434FE1D009E8590 /* Build configuration list for PBXNativeTarget "PolygonAttack" */;
 			buildPhases = (
+				9B26A983DA1A1EF480F42A60 /* [CP] Check Pods Manifest.lock */,
 				3AD3B92E2434FE1B009E8590 /* Sources */,
 				3AD3B92F2434FE1B009E8590 /* Frameworks */,
 				3AD3B9302434FE1B009E8590 /* Resources */,
+				11DA0974AE147E81BC7DB2EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,12 +234,55 @@
 			files = (
 				3AD3B9422434FE1D009E8590 /* LaunchScreen.storyboard in Resources */,
 				3AD3B93F2434FE1D009E8590 /* Assets.xcassets in Resources */,
+				86FFB2D82465269A009FD672 /* GoogleService-Info.plist in Resources */,
 				3AD3B93D2434FE1B009E8590 /* Main.storyboard in Resources */,
 				3A83BB3E2464380D00CA87C7 /* Music&Sound in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11DA0974AE147E81BC7DB2EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PolygonAttack/Pods-PolygonAttack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PolygonAttack/Pods-PolygonAttack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PolygonAttack/Pods-PolygonAttack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B26A983DA1A1EF480F42A60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PolygonAttack-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3AD3B92E2434FE1B009E8590 /* Sources */ = {
@@ -229,6 +304,7 @@
 				3AA36FDD244F7D07002225B0 /* Settings.swift in Sources */,
 				86A3EE2A245F72AD00D04B06 /* BoardSetupCell.swift in Sources */,
 				3A35503D2435327200BE01C2 /* MainBoardView.swift in Sources */,
+				86FFB2DC2465323E009FD672 /* LeaderboardTableViewController.swift in Sources */,
 				3A9D0257246498490059A0EB /* WinViewController.swift in Sources */,
 				3AD3B9382434FE1B009E8590 /* SceneDelegate.swift in Sources */,
 				3ABF020D245E0AA80031666B /* LoginViewController.swift in Sources */,
@@ -374,6 +450,7 @@
 		};
 		3AD3B9472434FE1D009E8590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94D4DB0E5BADB94F1D2842E6 /* Pods-PolygonAttack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -383,7 +460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.PolygonAttack2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enhanceit.polygonAttack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -392,6 +469,7 @@
 		};
 		3AD3B9482434FE1D009E8590 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5662BC9F225C7783C6079442 /* Pods-PolygonAttack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -401,7 +479,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.PolygonAttack2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.enhanceit.polygonAttack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
