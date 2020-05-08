@@ -78,9 +78,19 @@ class MainBoardView: UIViewController {
   }
   
   func configureBoard() {
-    let sideMargin = Settings.boardSideMargin
-    let boardWidth = view.frame.width - sideMargin * 2
-    let boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
+    let boardProportion = CGFloat(Settings.boardYPieces + 4) / CGFloat(Settings.boardXPieces)
+    let viewProportion = view.frame.height / view.frame.width
+    
+    let boardWidth: CGFloat
+    let boardHeight: CGFloat
+    if boardProportion < viewProportion {
+        boardWidth = view.frame.width - Settings.boardSideMargin * 2
+        boardHeight = boardWidth / CGFloat(Settings.boardXPieces) * CGFloat(Settings.boardYPieces)
+    } else {
+        boardHeight = view.frame.height / CGFloat(Settings.boardYPieces + 4) * CGFloat(Settings.boardYPieces)
+        boardWidth = boardHeight / CGFloat(Settings.boardYPieces) * CGFloat(Settings.boardXPieces)
+    }
+    
     boardView = BoardView(frame: CGRect(x: 0, y: 0, width: boardWidth, height: boardHeight))
     view.addSubview(boardView)
     boardView.translatesAutoresizingMaskIntoConstraints = false

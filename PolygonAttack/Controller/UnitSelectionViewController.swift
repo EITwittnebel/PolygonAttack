@@ -58,16 +58,16 @@ extension UnitSelectionViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "unitSelectionCell", for: indexPath)
         if let aUnit = gameUnits?[indexPath.row] {
             cell.imageView?.image = UIImage(named: aUnit.imageName)
-            cell.textLabel?.text = "Description"
+            cell.textLabel?.text = aUnit.desc
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = .byTruncatingTail
-            cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 11)
+            cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 10)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 32.0
+        return 64
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
